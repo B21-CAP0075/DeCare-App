@@ -49,7 +49,11 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
+    implementation "de.hdodenhof:circleimageview:$circular_image_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "androidx.viewpager2:viewpager2:$view_pager2_version"
+    implementation "me.relex:circleindicator:$circle_indicator_version"
 
     //testing
     testImplementation "junit:junit:$junit_version"
