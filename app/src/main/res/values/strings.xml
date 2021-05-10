@@ -11,4 +11,6 @@
     <string name="exercise">Olahraga</string>
     <string name="recapitulation">Rekap Kegiatan</string>
     <string name="application_guide">Panduan Aplikasi</string>
+    <string name="google_logo">Google Logo</string>
+    <string name="sign_in">Sign In</string>
 </resources>

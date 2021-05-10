@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "33256038026",
+    "project_id": "decare-76aa8",
+    "storage_bucket": "decare-76aa8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33256038026:android:9b889310ebe94b0730d773",
+        "android_client_info": {
+          "package_name": "com.aemiralfath.decare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33256038026-bsimt2q2eo7oupe4kuhl521uh8cqeguj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aemiralfath.decare",
+            "certificate_hash": "66e1fa73adcf83d1ecf2d2592ed2ace3a21915af"
+          }
+        },
+        {
+          "client_id": "33256038026-unmov9qn8po7176jtf0ct8inbjkkac6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVGThjinpRRzyzSPiRVzwxmET1ea_YMLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33256038026-unmov9qn8po7176jtf0ct8inbjkkac6p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
