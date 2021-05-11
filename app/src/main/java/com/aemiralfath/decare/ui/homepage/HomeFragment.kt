@@ -1,5 +1,6 @@
 package com.aemiralfath.decare.ui.homepage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentHomeBinding
+import com.aemiralfath.decare.ui.login.LoginActivity
 import com.aemiralfath.decare.util.DummyBannerGenerator
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
 
@@ -15,6 +21,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding as FragmentHomeBinding
 
     private val dummyUsername = "Dharma"
+
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var signInClient: GoogleSignInClient
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +43,21 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupHeader()
+        setupFirebase()
+
+        binding.layoutHeaderHome.imgUserProfileHeaderHome.setOnClickListener {
+            signOut()
+        }
+
+    }
+
+    private fun setupFirebase() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail().build()
+
+        signInClient = GoogleSignIn.getClient(requireActivity(), gso)
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 
     private fun setupHeader() {
@@ -58,6 +82,13 @@ class HomeFragment : Fragment() {
 
         vp.adapter = bannerAdapter
         indicators.setViewPager(vp)
+    }
+
+    private fun signOut() {
+        firebaseAuth.signOut()
+        signInClient.signOut()
+        activity?.onBackPressed()
+        startActivity(Intent(activity, LoginActivity::class.java))
     }
 
 }

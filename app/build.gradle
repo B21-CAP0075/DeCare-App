@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -54,6 +55,12 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "androidx.viewpager2:viewpager2:$view_pager2_version"
     implementation "me.relex:circleindicator:$circle_indicator_version"
+
+    //firebase
+    implementation platform("com.google.firebase:firebase-bom:$firebase_bom_version")
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation "com.google.android.gms:play-services-auth:$service_version"
+    implementation "com.google.firebase:firebase-auth:$auth_version"
 
     //testing
     testImplementation "junit:junit:$junit_version"
