@@ -33,7 +33,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/google_logo" />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"

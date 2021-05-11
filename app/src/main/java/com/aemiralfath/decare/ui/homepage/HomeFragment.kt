@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
             signOut()
         }
 
+        onFeatureClickListener()
     }
 
     private fun setupFirebase() {
@@ -89,6 +90,30 @@ class HomeFragment : Fragment() {
         signInClient.signOut()
         activity?.onBackPressed()
         startActivity(Intent(activity, LoginActivity::class.java))
+    }
+
+    private fun onFeatureClickListener() {
+        with(binding.layoutOurFeatureHome) {
+            cardEarlyDetectionFeatureHome.setOnClickListener {
+                //goto early detection
+            }
+
+            cardScheduleFeatureHome.setOnClickListener {
+
+            }
+
+            cardExerciseFeatureHome.setOnClickListener {
+
+            }
+
+            cardRecapitulationFeatureHome.setOnClickListener {
+
+            }
+
+            cardGuideFeatureHome.setOnClickListener {
+
+            }
+        }
     }
 
 }
