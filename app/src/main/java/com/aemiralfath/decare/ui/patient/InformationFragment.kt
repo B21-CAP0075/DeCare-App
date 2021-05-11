@@ -34,7 +34,7 @@ class InformationFragment : Fragment() {
             parentFragmentManager.commit {
                 addToBackStack(null)
                 replace(
-                    R.id.fragment_container_instruction,
+                    R.id.fragment_container_patient,
                     InstructionFragment(),
                     InstructionFragment::class.java.simpleName
                 )

@@ -9,7 +9,7 @@ import com.aemiralfath.decare.ui.patient.InformationFragment
 class PatientDataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_instruction)
+        setContentView(R.layout.activity_patient_data)
 
         val fragmentManager = supportFragmentManager
         val fragment = fragmentManager.findFragmentByTag(InformationFragment::class.java.simpleName)
@@ -17,7 +17,7 @@ class PatientDataActivity : AppCompatActivity() {
         if (fragment !is InformationFragment) {
             fragmentManager.commit {
                 add(
-                    R.id.fragment_container_instruction,
+                    R.id.fragment_container_patient,
                     InformationFragment(),
                     InformationFragment::class.java.simpleName
                 )

@@ -34,4 +34,12 @@
     </string>
     <string name="start_exam">Mulai Ujian</string>
     <string name="next">Selanjutnya</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Nama</string>
+    <string name="age">Usia</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="input_data">Input Data</string>
+    <string name="educ">Pendidikan terakhir</string>
+    <string name="ses">Tingkat Sosial Ekonomi</string>
 </resources>

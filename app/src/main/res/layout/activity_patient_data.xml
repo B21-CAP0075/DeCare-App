@@ -7,7 +7,7 @@
     tools:context=".ui.earlydetection.PatientDataActivity">
 
     <FrameLayout
-        android:id="@+id/fragment_container_instruction"
+        android:id="@+id/fragment_container_patient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
