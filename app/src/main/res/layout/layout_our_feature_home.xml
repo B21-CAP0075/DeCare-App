@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/tv_our_features_title_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/our_features"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_early_detection_feature_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_schedule_feature_home"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_our_features_title_home">
+
+        <ImageView
+            android:id="@+id/img_photo_early_detection_feature_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_launcher_background" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_title_early_detection_feature_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/early_detection"
+        app:layout_constraintEnd_toEndOf="@id/card_early_detection_feature_home"
+        app:layout_constraintStart_toStartOf="@id/card_early_detection_feature_home"
+        app:layout_constraintTop_toBottomOf="@id/card_early_detection_feature_home" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_schedule_feature_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_exercise_feature_home"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_early_detection_feature_home"
+        app:layout_constraintTop_toBottomOf="@+id/tv_our_features_title_home">
+
+        <ImageView
+            android:id="@+id/img_photo_schedule_feature_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_launcher_background" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_title_schedule_feature_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/schedule"
+        app:layout_constraintEnd_toEndOf="@id/card_schedule_feature_home"
+        app:layout_constraintStart_toStartOf="@id/card_schedule_feature_home"
+        app:layout_constraintTop_toBottomOf="@id/card_schedule_feature_home" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_exercise_feature_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_recapitulation_feature_home"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_schedule_feature_home"
+        app:layout_constraintTop_toBottomOf="@+id/tv_our_features_title_home">
+
+        <ImageView
+            android:id="@+id/img_photo_exercise_feature_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_launcher_background" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_title_exercise_feature_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/exercise"
+        app:layout_constraintEnd_toEndOf="@id/card_exercise_feature_home"
+        app:layout_constraintStart_toStartOf="@id/card_exercise_feature_home"
+        app:layout_constraintTop_toBottomOf="@id/card_exercise_feature_home" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_recapitulation_feature_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_guide_feature_home"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_exercise_feature_home"
+        app:layout_constraintTop_toBottomOf="@+id/tv_our_features_title_home">
+
+        <ImageView
+            android:id="@+id/img_photo_recapitulation_feature_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_launcher_background" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_title_recapitulation_feature_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/recapitulation"
+        app:layout_constraintEnd_toEndOf="@id/card_recapitulation_feature_home"
+        app:layout_constraintStart_toStartOf="@id/card_recapitulation_feature_home"
+        app:layout_constraintTop_toBottomOf="@id/card_recapitulation_feature_home" />
+
+    <!--    -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_guide_feature_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_recapitulation_feature_home"
+        app:layout_constraintTop_toBottomOf="@+id/tv_our_features_title_home">
+
+        <ImageView
+            android:id="@+id/img_photo_guide_feature_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_launcher_background" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_title_guide_feature_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/application_guide"
+        app:layout_constraintEnd_toEndOf="@id/card_guide_feature_home"
+        app:layout_constraintStart_toStartOf="@id/card_guide_feature_home"
+        app:layout_constraintTop_toBottomOf="@id/card_guide_feature_home" />
+</androidx.constraintlayout.widget.ConstraintLayout>
