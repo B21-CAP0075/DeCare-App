@@ -1,4 +1,4 @@
-package com.aemiralfath.decare.ui.patient
+package com.aemiralfath.decare.ui.earlydetection.introduction
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.Patient
 import com.aemiralfath.decare.databinding.FragmentDataPatientBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
-import com.aemiralfath.decare.ui.earlydetection.PatientTestActivity
+import com.aemiralfath.decare.ui.earlydetection.patienttest.PatientTestActivity
 
 class DataPatientFragment : Fragment() {
 

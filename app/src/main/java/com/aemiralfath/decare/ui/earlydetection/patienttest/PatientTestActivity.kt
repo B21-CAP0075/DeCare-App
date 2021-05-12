@@ -1,8 +1,9 @@
-package com.aemiralfath.decare.ui.earlydetection
+package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.aemiralfath.decare.databinding.ActivityPatientTestBinding
+
 
 class PatientTestActivity : AppCompatActivity() {
 

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ui.patient.DataPatientFragment">
+    tools:context=".ui.earlydetection.introduction.DataPatientFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout

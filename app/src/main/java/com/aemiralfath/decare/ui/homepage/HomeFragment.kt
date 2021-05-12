@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentHomeBinding
-import com.aemiralfath.decare.ui.earlydetection.PatientDataActivity
 import com.aemiralfath.decare.ui.login.LoginActivity
 import com.aemiralfath.decare.util.DummyBannerGenerator
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -20,8 +20,6 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding as FragmentHomeBinding
-
-    private val dummyUsername = "Dharma"
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var signInClient: GoogleSignInClient
@@ -43,8 +41,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupHeader()
         setupFirebase()
+        setupHeader()
 
         binding.layoutHeaderHome.imgUserProfileHeaderHome.setOnClickListener {
             signOut()
@@ -68,13 +66,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupGreetingMessage() {
+        val user = firebaseAuth.currentUser
         val greeting =
-            String.format(resources.getString(R.string.greeting_placeholder), dummyUsername)
+            String.format(resources.getString(R.string.greeting_placeholder), user?.displayName)
         binding.layoutHeaderHome.tvGreetingHeaderHome.text = greeting
     }
 
     private fun setupBanner() {
-        // setup banner
         val listBanner = DummyBannerGenerator.generateDummyBanner()
         val bannerAdapter = BannerAdapter()
         bannerAdapter.setBanners(listBanner)
@@ -89,14 +87,13 @@ class HomeFragment : Fragment() {
     private fun signOut() {
         firebaseAuth.signOut()
         signInClient.signOut()
-        activity?.onBackPressed()
         startActivity(Intent(activity, LoginActivity::class.java))
     }
 
     private fun onFeatureClickListener() {
         with(binding.layoutOurFeatureHome) {
             cardEarlyDetectionFeatureHome.setOnClickListener {
-                startActivity(Intent(activity, PatientDataActivity::class.java))
+                findNavController().navigate(R.id.action_homeFragment_to_patientDataActivity)
             }
 
             cardScheduleFeatureHome.setOnClickListener {

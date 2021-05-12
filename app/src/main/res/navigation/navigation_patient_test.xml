@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_patient_test"
+    app:startDestination="@id/questionOneFragment">
+
+    <fragment
+        android:id="@+id/questionOneFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionOneFragment"
+        android:label="fragment_question_one"
+        tools:layout="@layout/fragment_question_one" >
+        <action
+            android:id="@+id/action_questionOneFragment_to_questionTwoFragment"
+            app:destination="@id/questionTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionTwoFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionTwoFragment"
+        android:label="fragment_question_two"
+        tools:layout="@layout/fragment_question_two" >
+        <action
+            android:id="@+id/action_questionTwoFragment_to_questionThreeFragment"
+            app:destination="@id/questionThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionThreeFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionThreeFragment"
+        android:label="fragment_question_three"
+        tools:layout="@layout/fragment_question_three" >
+        <action
+            android:id="@+id/action_questionThreeFragment_to_questionFourFragment"
+            app:destination="@id/questionFourFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFourFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionFourFragment"
+        android:label="fragment_question_four"
+        tools:layout="@layout/fragment_question_four" >
+        <action
+            android:id="@+id/action_questionFourFragment_to_questionFiveFragment"
+            app:destination="@id/questionFiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFiveFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionFiveFragment"
+        android:label="fragment_question_five"
+        tools:layout="@layout/fragment_question_five" >
+        <action
+            android:id="@+id/action_questionFiveFragment_to_questionSixFragment"
+            app:destination="@id/questionSixFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionSixFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionSixFragment"
+        android:label="fragment_question_six"
+        tools:layout="@layout/fragment_question_six" >
+        <action
+            android:id="@+id/action_questionSixFragment_to_questionSevenFragment"
+            app:destination="@id/questionSevenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionSevenFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionSevenFragment"
+        android:label="fragment_question_seven"
+        tools:layout="@layout/fragment_question_seven" >
+        <action
+            android:id="@+id/action_questionSevenFragment_to_questionEightFragment"
+            app:destination="@id/questionEightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionEightFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionEightFragment"
+        android:label="fragment_question_eight"
+        tools:layout="@layout/fragment_question_eight" >
+        <action
+            android:id="@+id/action_questionEightFragment_to_questionNineFragment"
+            app:destination="@id/questionNineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionNineFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionNineFragment"
+        android:label="fragment_question_nine"
+        tools:layout="@layout/fragment_question_nine" >
+        <action
+            android:id="@+id/action_questionNineFragment_to_questionTenFragment"
+            app:destination="@id/questionTenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionTenFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionTenFragment"
+        android:label="fragment_question_ten"
+        tools:layout="@layout/fragment_question_ten" >
+        <action
+            android:id="@+id/action_questionTenFragment_to_questionElevenFragment"
+            app:destination="@id/questionElevenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionElevenFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionElevenFragment"
+        android:label="fragment_question_eleven"
+        tools:layout="@layout/fragment_question_eleven" />
+</navigation>
