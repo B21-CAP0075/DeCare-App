@@ -13,4 +13,33 @@
     <string name="application_guide">Panduan Aplikasi</string>
     <string name="google_logo">Google Logo</string>
     <string name="sign_in">Sign In</string>
+    <string name="information">Informasi</string>
+    <string name="information_value">
+        1. Pada test ini user akan melakukan test pendeteksian dini penyakit demensia menggunakan screening MMSE.\n\n
+        2. Data user dan hasil test MMSE akan dianalisis dan dilakukan proses prediksi Machine Learning.\n\n
+        3. User yang akan melakukan test membutuhkan 1 orang pendamping sebagai caregiver/validator.\n\n
+        4. Tugas caregiver/validator adalah membantu user dalam melakukan test tanpa memberi jawaban kepada user.\n\n
+        5. Setelah user selesai mengerjakan test, caregiver/validator memeriksa beberapa jawaban user yang harus diperiksa secara manual.
+    </string>
+    <string name="instruction">Instruksi</string>
+    <string name="instruction_value">
+        1. User dan Caregiver memahami informasi dan instruksi pada test sebelum memulai ujian.\n\n
+        2. User memasukkan data pengguna yang dibutuhkan untuk prediksi Machine Learning.\n\n
+        3. User melakukan test pada aplikasi, caregiver/validator mendampingi proses ujian user.\n\n
+        4. User selesai melakukan test, caregiver/validator memeriksa jawaban user.\n\n
+        5. Hasil test MMSE ditampilkan.\n\n
+        6. User atau Caregiver menekan tombol prediksi Machine Learning.\n\n
+        7. Hasil prediksi Machine Learning ditampilkan pada aplikasi.\n\n
+        8. Aplikasi memberikan saran dan informasi dari hasil test.
+    </string>
+    <string name="start_exam">Mulai Ujian</string>
+    <string name="next">Selanjutnya</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Nama</string>
+    <string name="age">Usia</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="input_data">Input Data</string>
+    <string name="educ">Pendidikan terakhir</string>
+    <string name="ses">Tingkat Sosial Ekonomi</string>
 </resources>
