@@ -7,9 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionSevenBinding
+import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.QuestionNumber
 
 class QuestionSevenFragment : Fragment() {
 
@@ -37,6 +40,11 @@ class QuestionSevenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelProvider.NewInstanceFactory()
+        ).get(EarlyDetectionViewModel::class.java)
+
         setupSoundPool()
 
         binding.btnPlayAudioQuestionSeven.setOnClickListener {
@@ -46,6 +54,7 @@ class QuestionSevenFragment : Fragment() {
         }
 
         binding.btnNextQuestionSeven.setOnClickListener {
+            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.SEVEN)
             findNavController().navigate(R.id.action_questionSevenFragment_to_questionEightFragment)
         }
 
@@ -63,6 +72,10 @@ class QuestionSevenFragment : Fragment() {
             }
         }
         soundId = sp.load(binding.root.context, R.raw.jika_tidak_dan_atau_tapi, 1)
+    }
+
+    private fun getAnswer() : String {
+        return binding.edtAnswerQuestionSeven.editText?.text.toString()
     }
 
 }

@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionTenBinding
+import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.QuestionNumber
 
 class QuestionTenFragment : Fragment() {
 
@@ -31,10 +34,19 @@ class QuestionTenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelProvider.NewInstanceFactory()
+        ).get(EarlyDetectionViewModel::class.java)
+
         binding.btnNextQuestionTen.setOnClickListener {
+            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.TEN)
             findNavController().navigate(R.id.action_questionTenFragment_to_questionElevenFragment)
         }
 
     }
+
+    private fun getAnswer() =
+        binding.edtAnswerQuestionTen.editText?.text.toString()
 
 }

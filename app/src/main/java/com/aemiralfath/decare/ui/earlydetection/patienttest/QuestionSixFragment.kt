@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionSixBinding
+import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.QuestionNumber
 
 class QuestionSixFragment : Fragment() {
 
@@ -31,10 +34,27 @@ class QuestionSixFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelProvider.NewInstanceFactory()
+        ).get(EarlyDetectionViewModel::class.java)
+
         binding.btnNextQuestionSix.setOnClickListener {
+            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.SIX)
             findNavController().navigate(R.id.action_questionSixFragment_to_questionSevenFragment)
         }
 
+    }
+
+    private fun getAnswer() : MutableList<String> {
+        val listAnswer = mutableListOf<String>()
+
+        listAnswer.clear() // menghapus list supaya tidak ada duplicate
+
+        listAnswer.add(binding.edtFirstObjectQuestionSix.editText?.text.toString())
+        listAnswer.add(binding.edtSecondObjectQuestionSix.editText?.text.toString())
+
+        return listAnswer
     }
 
 
