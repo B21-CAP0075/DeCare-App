@@ -1,10 +1,9 @@
-package com.aemiralfath.decare.ui.earlydetection
+package com.aemiralfath.decare.ui.earlydetection.introduction
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.aemiralfath.decare.R
-import com.aemiralfath.decare.ui.patient.InformationFragment
 
 class PatientDataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

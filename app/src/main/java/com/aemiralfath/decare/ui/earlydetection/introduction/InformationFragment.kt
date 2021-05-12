@@ -1,4 +1,4 @@
-package com.aemiralfath.decare.ui.patient
+package com.aemiralfath.decare.ui.earlydetection.introduction
 
 import android.os.Bundle
 import android.view.LayoutInflater

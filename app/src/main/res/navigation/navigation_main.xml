@@ -9,10 +9,19 @@
         android:id="@+id/homeFragment"
         android:name="com.aemiralfath.decare.ui.homepage.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_patientDataActivity"
+            app:destination="@id/patientDataActivity2" />
+    </fragment>
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.aemiralfath.decare.ui.article.ArticleFragment"
         android:label="@string/articles"
         tools:layout="@layout/fragment_article" />
+    <activity
+        android:id="@+id/patientDataActivity2"
+        android:name="com.aemiralfath.decare.ui.earlydetection.introduction.PatientDataActivity"
+        android:label="activity_patient_data"
+        tools:layout="@layout/activity_patient_data" />
 </navigation>
