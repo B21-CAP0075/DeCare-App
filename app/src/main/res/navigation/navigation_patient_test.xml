@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_patient_test"
-    app:startDestination="@id/questionOneFragment">
+    app:startDestination="@id/informationFragment">
 
     <fragment
         android:id="@+id/questionOneFragment"
@@ -100,4 +100,31 @@
         android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionElevenFragment"
         android:label="fragment_question_eleven"
         tools:layout="@layout/fragment_question_eleven" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.introduction.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_instructionFragment"
+            app:destination="@id/instructionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.introduction.InstructionFragment"
+        android:label="fragment_instruction"
+        tools:layout="@layout/fragment_instruction" >
+        <action
+            android:id="@+id/action_instructionFragment_to_dataPatientFragment"
+            app:destination="@id/dataPatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataPatientFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.introduction.DataPatientFragment"
+        android:label="fragment_data_patient"
+        tools:layout="@layout/fragment_data_patient" >
+        <action
+            android:id="@+id/action_dataPatientFragment_to_questionOneFragment"
+            app:destination="@id/questionOneFragment" />
+    </fragment>
 </navigation>

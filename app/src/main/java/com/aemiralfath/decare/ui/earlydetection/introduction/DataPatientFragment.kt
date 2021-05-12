@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.Patient
 import com.aemiralfath.decare.databinding.FragmentDataPatientBinding
@@ -64,7 +65,7 @@ class DataPatientFragment : Fragment() {
         populateForm()
 
         val viewModel = ViewModelProvider(
-            viewModelStore,
+            requireActivity(),
             ViewModelProvider.NewInstanceFactory()
         ).get(EarlyDetectionViewModel::class.java)
 
@@ -80,7 +81,8 @@ class DataPatientFragment : Fragment() {
 
             Log.d(TAG, patient.toString())
             viewModel.addData(patient)
-            startActivity(Intent(activity, PatientTestActivity::class.java))
+
+            findNavController().navigate(R.id.action_dataPatientFragment_to_questionOneFragment)
         }
 
     }

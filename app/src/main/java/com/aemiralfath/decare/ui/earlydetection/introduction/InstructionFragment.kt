@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentInstructionBinding
 
@@ -31,14 +32,7 @@ class InstructionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnInputData.setOnClickListener {
-            parentFragmentManager.commit {
-                addToBackStack(null)
-                replace(
-                    R.id.fragment_container_patient,
-                    DataPatientFragment(),
-                    DataPatientFragment::class.java.simpleName
-                )
-            }
+            findNavController().navigate(R.id.action_instructionFragment_to_dataPatientFragment)
         }
 
     }
