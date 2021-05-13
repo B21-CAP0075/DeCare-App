@@ -1,22 +1,32 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionEightBinding
-import com.google.android.material.card.MaterialCardView
+import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.QuestionNumber
 
-class QuestionEightFragment : Fragment() {
+class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClickedListener {
+
+    private val listCommand = mutableListOf("Geser Ke Kiri", "Geser Ke Kanan", "Klik")
+    private val listImgCommand =
+        mutableListOf(R.drawable.ic_swipe, R.drawable.ic_swipe, R.drawable.ic_click)
 
     private var _binding: FragmentQuestionEightBinding? = null
     private val binding get() = _binding as FragmentQuestionEightBinding
+
+    private lateinit var questionEightAdapter: QuestionEightAdapter
+    var score = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,43 +44,70 @@ class QuestionEightFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val questionCount = String.format(
+            resources.getString(R.string.question_count_placeholder),
+            8
+        )
+        binding.tvQuestionCountQuestionEight.text = questionCount
+
+        val viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelProvider.NewInstanceFactory()
+        ).get(EarlyDetectionViewModel::class.java)
 
         setupRecyclerView()
 
         binding.btnNextQuestionEight.setOnClickListener {
+            viewModel.updatePatientAnswer(score, QuestionNumber.EIGHT)
             findNavController().navigate(R.id.action_questionEightFragment_to_questionNineFragment)
         }
     }
 
     private fun setupRecyclerView() {
+        questionEightAdapter = QuestionEightAdapter()
+        questionEightAdapter.setData(listCommand, listImgCommand)
+        questionEightAdapter.setOnLongItemClickedListener(this)
+
         with(binding.rvQuestionEight) {
             layoutManager = LinearLayoutManager(binding.root.context)
-            adapter = QuestionEightAdapter()
+            adapter = questionEightAdapter
         }
 
         itemTouchHelper.attachToRecyclerView(binding.rvQuestionEight)
-
     }
 
-    private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(
-            recyclerView: RecyclerView,
-            viewHolder: RecyclerView.ViewHolder
-        ): Int = makeMovementFlags(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
-
+    private val itemTouchHelper = ItemTouchHelper(object :
+        ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
         override fun onMove(
             recyclerView: RecyclerView,
             viewHolder: RecyclerView.ViewHolder,
             target: RecyclerView.ViewHolder
         ): Boolean {
-            return true
+            return false
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
+            if (viewHolder is QuestionEightAdapter.ViewHolder) {
+                val position = viewHolder.bindingAdapterPosition
+                if (position == 0) {
+                    if (direction == ItemTouchHelper.LEFT) {
+                        score += 1
+                    }
+                }
+                if (position == 1) {
+                    if (direction == ItemTouchHelper.RIGHT) {
+                        score += 1
+                    }
+                }
+            }
         }
-
     })
+
+    override fun updateScore(position: Int) {
+        if (position == 2) {
+            score += 1
+        }
+    }
 
 
 }

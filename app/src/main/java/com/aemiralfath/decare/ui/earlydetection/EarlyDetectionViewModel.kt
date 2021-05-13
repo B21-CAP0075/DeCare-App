@@ -1,5 +1,6 @@
 package com.aemiralfath.decare.ui.earlydetection
 
+import android.graphics.Bitmap
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.aemiralfath.decare.data.Patient
@@ -13,6 +14,29 @@ class EarlyDetectionViewModel : ViewModel() {
     private var dataPatient: Patient? = null
     private val dataPatientTestScore = PatientTestScore()
     private val dataPatientAnswer = PatientAnswer()
+
+    fun logAllAnswer() {
+        Log.d("ViewModelAllAnswer", dataPatientAnswer.firstAnswer.toString())
+        Log.d("ViewModelAllAnswer", dataPatientAnswer.secondAnswer.toString())
+        Log.d("ViewModelAllAnswer", dataPatientAnswer.sixthAnswer.toString())
+        Log.d("ViewModelAllAnswer", dataPatientAnswer.tenthAnswer)
+        Log.d("ViewModelAllAnswer", dataPatientAnswer.eleventhAnswer.toString())
+
+    }
+
+    fun logAllScore() {
+        Log.d("ViewModelAllScore", dataPatientTestScore.firstQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.secondQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.thirdQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.fourthQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.fifthQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.sixthQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.seventhQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.eighthQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.ninthQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.tenthQuestionScore.toString())
+        Log.d("ViewModelAllScore", dataPatientTestScore.eleventhQuestionScore.toString())
+    }
 
     fun addData(patient: Patient) {
         dataPatient = patient
@@ -112,7 +136,13 @@ class EarlyDetectionViewModel : ViewModel() {
                 }
             }
             QuestionNumber.EIGHT -> {
+                val score = answer as Int
 
+                dataPatientTestScore.eighthQuestionScore = score
+                Log.d(
+                    "ViewModelTest",
+                    "patient eighth score: ${dataPatientTestScore.eighthQuestionScore}"
+                )
             }
             QuestionNumber.NINE -> {
                 val isClicked = answer as Boolean
@@ -136,7 +166,13 @@ class EarlyDetectionViewModel : ViewModel() {
                 )
             }
             QuestionNumber.ELEVEN -> {
-                //masih cari cara buat save gambar patient
+                val bitmap = answer as Bitmap
+                dataPatientAnswer.eleventhAnswer = bitmap
+
+                Log.d(
+                    "ViewModelTest",
+                    "patient eleventh answer: ${dataPatientAnswer.eleventhAnswer}"
+                )
             }
         }
     }

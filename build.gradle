@@ -14,6 +14,7 @@ buildscript {
         view_pager2_version = "1.0.0"
         recyclerview_version = "1.2.0"
         circle_indicator_version = "2.1.6"
+        finger_paint_version = "1.2"
 
         // firebase
         firebase_services_version = "4.3.5"
@@ -47,6 +48,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 

@@ -34,6 +34,8 @@ class QuestionOneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 1)
+        binding.tvQuestionCountQuestionOne.text = questionCount
 
         val viewModel = ViewModelProvider(
             requireActivity(),

@@ -90,4 +90,6 @@
     <string name="press_this_button">Tekan tombol ini</string>
     <string name="question_number_10">Tulis sebuah kalimat lengkap yang memiliki subject dan predikat</string>
     <string name="empty_error_field_message">Harap jawab pertanyaan ini</string>
+    <string name="question_number_11">Ikutilah Gambar 2 Segilima bersinggungan di bawah ini</string>
+    <string name="finish_test">Selesaikan Ujian</string>
 </resources>
