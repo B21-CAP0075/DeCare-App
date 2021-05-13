@@ -7,9 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionThreeBinding
+import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.QuestionNumber
 
 class QuestionThreeFragment : Fragment() {
 
@@ -36,6 +39,13 @@ class QuestionThreeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 3)
+        binding.tvQuestionCountQuestionThree.text = questionCount
+
+        val viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelProvider.NewInstanceFactory()
+        ).get(EarlyDetectionViewModel::class.java)
 
         setupSoundPool()
 
@@ -46,6 +56,7 @@ class QuestionThreeFragment : Fragment() {
         }
 
         binding.btnNextQuestionThree.setOnClickListener {
+            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.THREE)
             findNavController().navigate(R.id.action_questionThreeFragment_to_questionFourFragment)
         }
     }
@@ -59,11 +70,40 @@ class QuestionThreeFragment : Fragment() {
             if (status == 0) {
                 spLoaded = true
             } else {
-                Log.d("QUESTION THREE", "Gagal Load")
+                Log.d("QuestionThree", "Gagal Load")
             }
         }
 
         soundId = sp.load(binding.root.context, R.raw.apel_meja_koin, 1)
     }
+
+    private fun getAnswer() : MutableList<String> {
+        val listAnswer = mutableListOf<String>()
+
+        listAnswer.clear() // menghapus list supaya tidak ada duplicate
+
+        listAnswer.add(binding.edtFirstObjectQuestionThree.editText?.text.toString())
+        listAnswer.add(binding.edtSecondObjectQuestionThree.editText?.text.toString())
+        listAnswer.add(binding.edtThirdObjectQuestionThree.editText?.text.toString())
+
+        return listAnswer
+    }
+
+//    private fun calculate() : Int {
+//        var score = 0
+//
+//        if (binding.edtFirstObjectQuestionThree.editText?.text?.contains("apel", ignoreCase = true) == true) {
+//            score += 1
+//        }
+//
+//        if (binding.edtSecondObjectQuestionThree.editText?.text?.contains("meja", ignoreCase = true) == true) {
+//            score += 1
+//        }
+//
+//        if (binding.edtThirdObjectQuestionThree.editText?.text?.contains("koin", ignoreCase = true) == true) {
+//            score += 1
+//        }
+//        return score
+//    }
 
 }

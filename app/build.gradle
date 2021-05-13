@@ -55,6 +55,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "androidx.viewpager2:viewpager2:$view_pager2_version"
     implementation "me.relex:circleindicator:$circle_indicator_version"
+    implementation "com.github.PicnicSupermarket:FingerPaintView:$finger_paint_version"
 
     //firebase
     implementation platform("com.google.firebase:firebase-bom:$firebase_bom_version")
