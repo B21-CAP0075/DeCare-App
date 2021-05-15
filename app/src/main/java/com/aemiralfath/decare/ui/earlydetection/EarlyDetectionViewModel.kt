@@ -1,6 +1,7 @@
 package com.aemiralfath.decare.ui.earlydetection
 
 import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.aemiralfath.decare.data.Patient
@@ -15,14 +16,7 @@ class EarlyDetectionViewModel : ViewModel() {
     private val dataPatientTestScore = PatientTestScore()
     private val dataPatientAnswer = PatientAnswer()
 
-    fun logAllAnswer() {
-        Log.d("ViewModelAllAnswer", dataPatientAnswer.firstAnswer.toString())
-        Log.d("ViewModelAllAnswer", dataPatientAnswer.secondAnswer.toString())
-        Log.d("ViewModelAllAnswer", dataPatientAnswer.sixthAnswer.toString())
-        Log.d("ViewModelAllAnswer", dataPatientAnswer.tenthAnswer)
-        Log.d("ViewModelAllAnswer", dataPatientAnswer.eleventhAnswer.toString())
-
-    }
+    fun getPatientAnswers() = dataPatientAnswer
 
     fun logAllScore() {
         Log.d("ViewModelAllScore", dataPatientTestScore.firstQuestionScore.toString())
@@ -41,6 +35,49 @@ class EarlyDetectionViewModel : ViewModel() {
     fun addData(patient: Patient) {
         dataPatient = patient
         Log.d("ViewModelTest", dataPatient.toString())
+    }
+
+    fun updatePatientScore(score: Int, questionNumber: QuestionNumber) {
+        when(questionNumber) {
+            QuestionNumber.ONE -> {
+                dataPatientTestScore.firstQuestionScore = score
+                Log.d(
+                    "ViewModelTest",
+                    "patient first score: ${dataPatientTestScore.firstQuestionScore}"
+                )
+            }
+            QuestionNumber.TWO -> {
+                dataPatientTestScore.secondQuestionScore = score
+                Log.d(
+                    "ViewModelTest",
+                    "patient second score: ${dataPatientTestScore.secondQuestionScore}"
+                )
+            }
+            QuestionNumber.SIX -> {
+                dataPatientTestScore.sixthQuestionScore = score
+                Log.d(
+                    "ViewModelTest",
+                    "patient sixth score: ${dataPatientTestScore.sixthQuestionScore}"
+                )
+            }
+            QuestionNumber.TEN -> {
+                dataPatientTestScore.tenthQuestionScore = score
+                Log.d(
+                    "ViewModelTest",
+                    "patient tenth score: ${dataPatientTestScore.tenthQuestionScore}"
+                )
+            }
+            QuestionNumber.ELEVEN -> {
+                dataPatientTestScore.eleventhQuestionScore = score
+                Log.d(
+                    "ViewModelTest",
+                    "patient eleventh score: ${dataPatientTestScore.eleventhQuestionScore}"
+                )
+            }
+            else -> {
+
+            }
+        }
     }
 
     fun updatePatientAnswer(answer: Any, questionNumber: QuestionNumber) {
@@ -166,8 +203,8 @@ class EarlyDetectionViewModel : ViewModel() {
                 )
             }
             QuestionNumber.ELEVEN -> {
-                val bitmap = answer as Bitmap
-                dataPatientAnswer.eleventhAnswer = bitmap
+                val drawable = answer as Drawable
+                dataPatientAnswer.eleventhAnswer = drawable
 
                 Log.d(
                     "ViewModelTest",

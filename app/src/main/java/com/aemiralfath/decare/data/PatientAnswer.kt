@@ -1,6 +1,9 @@
 package com.aemiralfath.decare.data
 
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 
 /*
     tidak menyimpan jawaban nomor 3, 4, 5, 7, 8, dan 9 karena
@@ -11,5 +14,5 @@ data class PatientAnswer(
     var secondAnswer: MutableList<String> = mutableListOf(),
     var sixthAnswer: MutableList<String> = mutableListOf(),
     var tenthAnswer: String = "",
-    var eleventhAnswer: Bitmap = Bitmap.createBitmap(1, 1 , Bitmap.Config.ARGB_8888) // ini empty bitmap untuk nilai defaultnya
+    var eleventhAnswer:  Drawable = ColorDrawable(Color.TRANSPARENT)
 )

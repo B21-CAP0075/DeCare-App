@@ -46,6 +46,7 @@ class QuestionNineFragment : Fragment() {
         binding.btnQuestionNine.setOnClickListener {
             isClicked = true
             it.isEnabled = false
+            binding.btnQuestionNine.text = resources.getString(R.string.clicked_button)
         }
 
         binding.btnNextQuestionNine.setOnClickListener {
