@@ -135,5 +135,14 @@
         android:id="@+id/validatorTestFragment"
         android:name="com.aemiralfath.decare.ui.earlydetection.validatortest.ValidatorTestFragment"
         android:label="fragment_validator_test"
-        tools:layout="@layout/fragment_validator_test" />
+        tools:layout="@layout/fragment_validator_test" >
+        <action
+            android:id="@+id/action_validatorTestFragment_to_testResultFragment"
+            app:destination="@id/testResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testResultFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.testresult.TestResultFragment"
+        android:label="fragment_test_result"
+        tools:layout="@layout/fragment_test_result" />
 </navigation>

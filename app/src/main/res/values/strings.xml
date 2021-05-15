@@ -98,4 +98,6 @@
     <string name="give_score">Beri nilai</string>
     <string name="check_patient_score">Periksa Nilai Pasien</string>
     <string name="submit_score">Kirim Nilai</string>
+    <string name="your_test_score">Hasil ujian MMSE anda adalah %d</string>
+    <string name="predict">Lakukan Prediksi</string>
 </resources>

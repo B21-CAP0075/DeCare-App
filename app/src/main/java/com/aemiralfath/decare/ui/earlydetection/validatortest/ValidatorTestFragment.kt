@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.Patient
@@ -47,6 +48,12 @@ class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClic
 
         binding.btnCheckScoreValidator.setOnClickListener {
             viewModel.logAllScore()
+        }
+
+        binding.btnSubmitScoreValidator.setOnClickListener {
+            viewModel.updatePatientMMSE()
+
+            findNavController().navigate(R.id.action_validatorTestFragment_to_testResultFragment)
         }
     }
 
