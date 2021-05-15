@@ -1,7 +1,6 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +17,9 @@ import com.aemiralfath.decare.util.QuestionNumber
 
 class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClickedListener {
 
-    private val listCommand = mutableListOf("Geser Ke Kiri", "Geser Ke Kanan", "Klik")
+    private val listCommand = mutableListOf("Tekan Tahan", "Geser Ke Kiri", "Geser Ke Kanan")
     private val listImgCommand =
-        mutableListOf(R.drawable.ic_swipe, R.drawable.ic_swipe, R.drawable.ic_click)
+        mutableListOf(R.drawable.ic_click, R.drawable.ic_swipe, R.drawable.ic_swipe)
 
     private var _binding: FragmentQuestionEightBinding? = null
     private val binding get() = _binding as FragmentQuestionEightBinding
@@ -63,6 +62,11 @@ class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClicked
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        score = 0
+    }
+
     private fun setupRecyclerView() {
         questionEightAdapter = QuestionEightAdapter()
         questionEightAdapter.setData(listCommand, listImgCommand)
@@ -89,12 +93,12 @@ class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClicked
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             if (viewHolder is QuestionEightAdapter.ViewHolder) {
                 val position = viewHolder.bindingAdapterPosition
-                if (position == 0) {
+                if (position == 1) {
                     if (direction == ItemTouchHelper.LEFT) {
                         score += 1
                     }
                 }
-                if (position == 1) {
+                if (position == 2) {
                     if (direction == ItemTouchHelper.RIGHT) {
                         score += 1
                     }
@@ -104,7 +108,7 @@ class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClicked
     })
 
     override fun updateScore(position: Int) {
-        if (position == 2) {
+        if (position == 0) {
             score += 1
         }
     }

@@ -51,6 +51,7 @@ class QuestionEightAdapter : RecyclerView.Adapter<QuestionEightAdapter.ViewHolde
                 root.setOnLongClickListener {
                     val position = bindingAdapterPosition
                     longClickListener.updateScore(position)
+                    root.visibility = View.GONE
                     true
                 }
             }

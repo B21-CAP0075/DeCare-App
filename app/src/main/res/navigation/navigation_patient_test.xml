@@ -99,7 +99,11 @@
         android:id="@+id/questionElevenFragment"
         android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionElevenFragment"
         android:label="fragment_question_eleven"
-        tools:layout="@layout/fragment_question_eleven" />
+        tools:layout="@layout/fragment_question_eleven" >
+        <action
+            android:id="@+id/action_questionElevenFragment_to_validatorTestFragment"
+            app:destination="@id/validatorTestFragment" />
+    </fragment>
     <fragment
         android:id="@+id/informationFragment"
         android:name="com.aemiralfath.decare.ui.earlydetection.introduction.InformationFragment"
@@ -127,4 +131,9 @@
             android:id="@+id/action_dataPatientFragment_to_questionOneFragment"
             app:destination="@id/questionOneFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/validatorTestFragment"
+        android:name="com.aemiralfath.decare.ui.earlydetection.validatortest.ValidatorTestFragment"
+        android:label="fragment_validator_test"
+        tools:layout="@layout/fragment_validator_test" />
 </navigation>

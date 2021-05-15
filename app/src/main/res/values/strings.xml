@@ -92,4 +92,10 @@
     <string name="empty_error_field_message">Harap jawab pertanyaan ini</string>
     <string name="question_number_11">Ikutilah Gambar 2 Segilima bersinggungan di bawah ini</string>
     <string name="finish_test">Selesaikan Ujian</string>
+    <string name="clicked_button">Tombol ini telah ditekan</string>
+    <string name="first_question_validator">Sebutkan Jam, Hari, Tanggal, Bulan, Tahun</string>
+    <string name="score">Nilai</string>
+    <string name="give_score">Beri nilai</string>
+    <string name="check_patient_score">Periksa Nilai Pasien</string>
+    <string name="submit_score">Kirim Nilai</string>
 </resources>

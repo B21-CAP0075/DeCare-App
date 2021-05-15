@@ -1,14 +1,17 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionElevenBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.QuestionNumber
 
 class QuestionElevenFragment : Fragment() {
 
@@ -41,8 +44,10 @@ class QuestionElevenFragment : Fragment() {
         ).get(EarlyDetectionViewModel::class.java)
 
         binding.btnFinishQuestionEleven.setOnClickListener {
-            viewModel.logAllAnswer()
-            viewModel.logAllScore()
+            val answerBitmap = binding.fingerpaintQuestionEleven.drawable as Drawable
+            viewModel.updatePatientAnswer(answerBitmap, QuestionNumber.ELEVEN)
+
+            findNavController().navigate(R.id.action_questionElevenFragment_to_validatorTestFragment)
         }
 
     }
