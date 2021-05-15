@@ -4,11 +4,15 @@ import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.aemiralfath.decare.data.Patient
-import com.aemiralfath.decare.data.PatientAnswer
-import com.aemiralfath.decare.data.PatientTestScore
+import com.aemiralfath.decare.data.*
 import com.aemiralfath.decare.util.AnyConverter
+import com.aemiralfath.decare.util.JsonObjectConverter
 import com.aemiralfath.decare.util.QuestionNumber
+import com.google.gson.JsonObject
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class EarlyDetectionViewModel : ViewModel() {
 
@@ -17,19 +21,38 @@ class EarlyDetectionViewModel : ViewModel() {
     private val dataPatientAnswer = PatientAnswer()
 
     fun getPatientAnswers() = dataPatientAnswer
+    fun getPatientData() = dataPatient
+
+    fun updatePatientMMSE() {
+        var totalScore = 0
+
+        totalScore += dataPatientTestScore.firstQuestionScore
+        totalScore += dataPatientTestScore.secondQuestionScore
+        totalScore += dataPatientTestScore.thirdQuestionScore
+        totalScore += dataPatientTestScore.fourthQuestionScore
+        totalScore += dataPatientTestScore.fifthQuestionScore
+        totalScore += dataPatientTestScore.sixthQuestionScore
+        totalScore += dataPatientTestScore.seventhQuestionScore
+        totalScore += dataPatientTestScore.eighthQuestionScore
+        totalScore += dataPatientTestScore.ninthQuestionScore
+        totalScore += dataPatientTestScore.tenthQuestionScore
+        totalScore += dataPatientTestScore.eleventhQuestionScore
+
+        dataPatient?.mmse = totalScore
+    }
 
     fun logAllScore() {
-        Log.d("ViewModelAllScore", dataPatientTestScore.firstQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.secondQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.thirdQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.fourthQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.fifthQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.sixthQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.seventhQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.eighthQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.ninthQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.tenthQuestionScore.toString())
-        Log.d("ViewModelAllScore", dataPatientTestScore.eleventhQuestionScore.toString())
+        Log.d("ViewModelAllScore", "first score: ${dataPatientTestScore.firstQuestionScore}")
+        Log.d("ViewModelAllScore", "second score: ${dataPatientTestScore.secondQuestionScore}")
+        Log.d("ViewModelAllScore", "third score: ${dataPatientTestScore.thirdQuestionScore}")
+        Log.d("ViewModelAllScore", "fourth score: ${dataPatientTestScore.fourthQuestionScore}")
+        Log.d("ViewModelAllScore", "fifth score: ${dataPatientTestScore.fifthQuestionScore}")
+        Log.d("ViewModelAllScore", "sixth score: ${dataPatientTestScore.sixthQuestionScore}")
+        Log.d("ViewModelAllScore", "seventh score: ${dataPatientTestScore.seventhQuestionScore}")
+        Log.d("ViewModelAllScore", "eighth score: ${dataPatientTestScore.eighthQuestionScore}")
+        Log.d("ViewModelAllScore", "ninth score: ${dataPatientTestScore.ninthQuestionScore}")
+        Log.d("ViewModelAllScore", "tenth score: ${dataPatientTestScore.tenthQuestionScore}")
+        Log.d("ViewModelAllScore", "eleventh score: ${dataPatientTestScore.eleventhQuestionScore}")
     }
 
     fun addData(patient: Patient) {
@@ -126,7 +149,7 @@ class EarlyDetectionViewModel : ViewModel() {
                 dataPatientTestScore.fourthQuestionScore = score
                 Log.d(
                     "ViewModelTest",
-                    "patient third score: ${dataPatientTestScore.fourthQuestionScore}"
+                    "patient fourth score: ${dataPatientTestScore.fourthQuestionScore}"
                 )
             }
             QuestionNumber.FIVE -> {
@@ -146,7 +169,7 @@ class EarlyDetectionViewModel : ViewModel() {
                 dataPatientTestScore.fifthQuestionScore = score
                 Log.d(
                     "ViewModelTest",
-                    "patient third score: ${dataPatientTestScore.fifthQuestionScore}"
+                    "patient fifth score: ${dataPatientTestScore.fifthQuestionScore}"
                 )
             }
             QuestionNumber.SIX -> {
@@ -212,5 +235,32 @@ class EarlyDetectionViewModel : ViewModel() {
                 )
             }
         }
+    }
+
+    fun predict() {
+        val jsonPatient = dataPatient?.let { JsonObjectConverter.convertPatientToJson(it) }
+        val client = DecareApiService.service
+
+        jsonPatient?.let {
+            client.predict(it)
+                .enqueue(object : Callback<PredictionResponse> {
+                    override fun onResponse(
+                        call: Call<PredictionResponse>,
+                        response: Response<PredictionResponse>
+                    ) {
+                        val result = response.body()
+
+                        result?.let { value ->
+                            Log.d("ViewModelPrediction", value.toString())
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<PredictionResponse>, t: Throwable) {
+                        Log.d("ViewModelPrediction", "GAGAL ${t.message}")
+                    }
+                })
+        }
+
     }
 }

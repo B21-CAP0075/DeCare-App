@@ -6,5 +6,5 @@ data class Patient(
     val gender: Int? = 0,
     val educ: Int? = 0,
     val ses: Int? = 0,
-    val mmse: Int? = 0
+    var mmse: Int? = 0
 )

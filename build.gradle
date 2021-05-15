@@ -15,6 +15,7 @@ buildscript {
         recyclerview_version = "1.2.0"
         circle_indicator_version = "2.1.6"
         finger_paint_version = "1.2"
+        retrofit_version = "2.9.0"
 
         // firebase
         firebase_services_version = "4.3.5"

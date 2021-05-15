@@ -63,6 +63,10 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:$service_version"
     implementation "com.google.firebase:firebase-auth:$auth_version"
 
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
     //testing
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$junit_ext_version"
