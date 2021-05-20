@@ -1,4 +1,4 @@
-package com.aemiralfath.decare.data
+package com.aemiralfath.decare.data.source.remote.response.prediction
 
 import com.google.gson.annotations.SerializedName
 

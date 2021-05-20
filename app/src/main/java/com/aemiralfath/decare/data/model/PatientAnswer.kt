@@ -1,4 +1,4 @@
-package com.aemiralfath.decare.data
+package com.aemiralfath.decare.data.model
 
 import android.graphics.Bitmap
 import android.graphics.Color

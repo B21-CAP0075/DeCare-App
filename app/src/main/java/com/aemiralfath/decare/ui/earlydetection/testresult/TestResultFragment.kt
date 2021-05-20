@@ -43,7 +43,7 @@ class TestResultFragment : Fragment() {
         }
 
         binding.btnPredictTestResult.setOnClickListener {
-            viewModel.predict()
+//            viewModel.predict()
         }
     }
 }

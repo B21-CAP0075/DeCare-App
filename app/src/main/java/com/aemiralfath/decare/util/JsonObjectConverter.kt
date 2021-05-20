@@ -1,6 +1,6 @@
 package com.aemiralfath.decare.util
 
-import com.aemiralfath.decare.data.Patient
+import com.aemiralfath.decare.data.model.Patient
 import com.google.gson.JsonObject
 
 object JsonObjectConverter {
