@@ -1,4 +1,4 @@
-package com.aemiralfath.decare.data
+package com.aemiralfath.decare.data.model
 
 data class Patient(
     val name: String? = "",

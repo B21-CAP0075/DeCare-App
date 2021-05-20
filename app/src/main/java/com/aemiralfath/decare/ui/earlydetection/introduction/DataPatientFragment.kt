@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
-import com.aemiralfath.decare.data.Patient
+import com.aemiralfath.decare.data.model.Patient
 import com.aemiralfath.decare.databinding.FragmentDataPatientBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 

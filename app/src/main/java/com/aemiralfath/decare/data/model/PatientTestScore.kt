@@ -1,4 +1,4 @@
-package com.aemiralfath.decare.data
+package com.aemiralfath.decare.data.model
 
 data class PatientTestScore(
     var firstQuestionScore: Int = 0, //akan dikalkulasi oleh validator

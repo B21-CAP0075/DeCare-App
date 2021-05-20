@@ -16,13 +16,16 @@ buildscript {
         circle_indicator_version = "2.1.6"
         finger_paint_version = "1.2"
         retrofit_version = "2.9.0"
+        room_version = "2.3.0"
+        kotlin_coroutines_version = "1.4.3"
+        lifecycle_version = "2.3.1"
+        koin_version = "2.2.2"
 
         // firebase
         firebase_services_version = "4.3.5"
         firebase_bom_version = "27.1.0"
         service_version = "19.0.0"
         auth_version = "20.0.4"
-
 
         //testing
         junit_version = "4.13.2"

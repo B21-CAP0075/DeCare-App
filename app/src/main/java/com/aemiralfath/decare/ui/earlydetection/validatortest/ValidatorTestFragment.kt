@@ -9,8 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aemiralfath.decare.R
-import com.aemiralfath.decare.data.Patient
-import com.aemiralfath.decare.data.PatientAnswer
+import com.aemiralfath.decare.data.model.PatientAnswer
 import com.aemiralfath.decare.databinding.FragmentValidatorTestBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
