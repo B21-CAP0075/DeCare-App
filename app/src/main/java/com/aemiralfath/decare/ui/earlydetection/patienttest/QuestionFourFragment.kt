@@ -12,6 +12,7 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionFourBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
 
@@ -19,7 +20,7 @@ class QuestionFourFragment : Fragment() {
 
     private var _binding: FragmentQuestionFourBinding? = null
     private val binding get()= _binding as FragmentQuestionFourBinding
-    private val viewModel: EarlyDetectionViewModel by viewModel()
+    private val viewModel by viewModel<EarlyDetectionViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

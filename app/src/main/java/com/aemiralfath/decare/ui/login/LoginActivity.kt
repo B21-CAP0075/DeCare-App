@@ -65,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
-        binding.progressBar.visibility = View.GONE
     }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
@@ -75,12 +74,14 @@ class LoginActivity : AppCompatActivity() {
 
         firebaseAuth.signInWithCredential(credential)
             .addOnSuccessListener {
+                binding.progressBar.visibility = View.GONE
                 Log.d(TAG, "signInWithCredential:success")
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
             }
             .addOnFailureListener(this) {
                 Log.w(TAG, "signInWithCredential", it)
+                binding.progressBar.visibility = View.GONE
                 Toast.makeText(
                     this@LoginActivity, "Authentication failed.",
                     Toast.LENGTH_SHORT

@@ -6,7 +6,6 @@ import com.aemiralfath.decare.databinding.ActivityEarlyDetectionBinding
 
 
 class EarlyDetectionActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityEarlyDetectionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
