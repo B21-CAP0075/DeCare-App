@@ -100,4 +100,5 @@
     <string name="submit_score">Kirim Nilai</string>
     <string name="your_test_score">Hasil ujian MMSE anda adalah %d</string>
     <string name="predict">Lakukan Prediksi</string>
+    <string name="image_splashscreen">Image Splashscreen</string>
 </resources>
