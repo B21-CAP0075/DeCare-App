@@ -13,13 +13,14 @@ import com.aemiralfath.decare.data.model.PatientAnswer
 import com.aemiralfath.decare.databinding.FragmentValidatorTestBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClicked {
 
     private var _binding: FragmentValidatorTestBinding? = null
     private val binding  get() = _binding as FragmentValidatorTestBinding
 
-    private lateinit var viewModel: EarlyDetectionViewModel
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,11 +38,6 @@ class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClic
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
 
         setupRecyclerview(viewModel.getPatientAnswers())
 

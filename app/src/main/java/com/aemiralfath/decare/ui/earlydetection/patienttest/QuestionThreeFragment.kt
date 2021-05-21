@@ -13,6 +13,7 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionThreeBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuestionThreeFragment : Fragment() {
 
@@ -22,6 +23,7 @@ class QuestionThreeFragment : Fragment() {
 
     private var _binding: FragmentQuestionThreeBinding? = null
     private val binding get() = _binding as FragmentQuestionThreeBinding
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,11 +43,6 @@ class QuestionThreeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 3)
         binding.tvQuestionCountQuestionThree.text = questionCount
-
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
 
         setupSoundPool()
 

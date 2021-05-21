@@ -14,7 +14,7 @@ interface DecareApiService {
 
     @Headers("Content-type: application/json")
     @POST("predict")
-    fun predict(@Body body: JsonObject): Call<PredictionResponse>
+    fun predict(@Body body: JsonObject): PredictionResponse
 
     @GET("article")
     suspend fun getArticle() : ArticleResponse

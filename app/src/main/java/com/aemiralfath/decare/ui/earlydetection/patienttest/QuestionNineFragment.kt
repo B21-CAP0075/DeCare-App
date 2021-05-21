@@ -11,11 +11,13 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionNineBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuestionNineFragment : Fragment() {
 
     private var _binding: FragmentQuestionNineBinding? = null
     private val binding get() = _binding as FragmentQuestionNineBinding
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     private var isClicked = false
 
@@ -37,11 +39,6 @@ class QuestionNineFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 9)
         binding.tvQuestionCountQuestionNine.text = questionCount
-
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
 
         binding.btnQuestionNine.setOnClickListener {
             isClicked = true

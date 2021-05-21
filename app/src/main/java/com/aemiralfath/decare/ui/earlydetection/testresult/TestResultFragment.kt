@@ -9,11 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentTestResultBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class TestResultFragment : Fragment() {
 
     private var _binding: FragmentTestResultBinding? = null
     private val binding get() = _binding as FragmentTestResultBinding
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,18 +34,13 @@ class TestResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
-
         val patient = viewModel.getPatientData()
         patient?.let {
             binding.tvTestScoreTestResult.text = it.mmse.toString()
         }
 
         binding.btnPredictTestResult.setOnClickListener {
-//            viewModel.predict()
+            viewModel.predict()
         }
     }
 }

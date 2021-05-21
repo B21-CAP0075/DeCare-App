@@ -88,6 +88,7 @@ class HomeFragment : Fragment() {
         firebaseAuth.signOut()
         signInClient.signOut()
         startActivity(Intent(activity, LoginActivity::class.java))
+        activity?.onBackPressed()
     }
 
     private fun onFeatureClickListener() {

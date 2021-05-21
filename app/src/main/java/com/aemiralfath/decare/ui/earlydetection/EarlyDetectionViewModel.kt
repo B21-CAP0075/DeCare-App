@@ -3,23 +3,21 @@ package com.aemiralfath.decare.ui.earlydetection
 import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.aemiralfath.decare.data.DecareRepository
 import com.aemiralfath.decare.data.model.Patient
 import com.aemiralfath.decare.data.model.PatientAnswer
 import com.aemiralfath.decare.data.model.PatientTestScore
-import com.aemiralfath.decare.data.source.remote.network.DecareApiService
-import com.aemiralfath.decare.data.source.remote.response.prediction.PredictionResponse
 import com.aemiralfath.decare.util.AnyConverter
 import com.aemiralfath.decare.util.JsonObjectConverter
 import com.aemiralfath.decare.util.QuestionNumber
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class EarlyDetectionViewModel : ViewModel() {
+class EarlyDetectionViewModel(decareRepository: DecareRepository) : ViewModel() {
 
     private var dataPatient: Patient? = null
     private val dataPatientTestScore = PatientTestScore()
     private val dataPatientAnswer = PatientAnswer()
+    private val repository = decareRepository
 
     fun getPatientAnswers() = dataPatientAnswer
     fun getPatientData() = dataPatient
@@ -62,7 +60,7 @@ class EarlyDetectionViewModel : ViewModel() {
     }
 
     fun updatePatientScore(score: Int, questionNumber: QuestionNumber) {
-        when(questionNumber) {
+        when (questionNumber) {
             QuestionNumber.ONE -> {
                 dataPatientTestScore.firstQuestionScore = score
                 Log.d(
@@ -238,30 +236,9 @@ class EarlyDetectionViewModel : ViewModel() {
         }
     }
 
-//    fun predict() {
-//        val jsonPatient = dataPatient?.let { JsonObjectConverter.convertPatientToJson(it) }
-//        val client = DecareApiService.service
-//
-//        jsonPatient?.let {
-//            client.predict(it)
-//                .enqueue(object : Callback<PredictionResponse> {
-//                    override fun onResponse(
-//                        call: Call<PredictionResponse>,
-//                        response: Response<PredictionResponse>
-//                    ) {
-//                        val result = response.body()
-//
-//                        result?.let { value ->
-//                            Log.d("ViewModelPrediction", value.toString())
-//                        }
-//
-//                    }
-//
-//                    override fun onFailure(call: Call<PredictionResponse>, t: Throwable) {
-//                        Log.d("ViewModelPrediction", "GAGAL ${t.message}")
-//                    }
-//                })
-//        }
-//
-//    }
+    fun predict() {
+        val jsonPatient = dataPatient?.let { JsonObjectConverter.convertPatientToJson(it) }
+        val prediction = jsonPatient?.let { repository.getPrediction(it).asLiveData() }
+        Log.d("ViewModelPrediction", prediction?.value?.data.toString())
+    }
 }
