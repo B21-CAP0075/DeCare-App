@@ -1,11 +1,14 @@
 package com.aemiralfath.decare.ui.earlydetection.validatortest
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.text.InputType
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.ItemAnswerValidatorBinding
@@ -26,7 +29,12 @@ class ValidatorTestAdapter : RecyclerView.Adapter<ValidatorTestAdapter.ViewHolde
     private lateinit var context: Context
     private lateinit var onUpdateScoreClicked: OnUpdateScoreClicked
 
-    fun setData(answers: MutableList<String>, answerDrawable: Drawable, context: Context, onUpdateScoreClicked: OnUpdateScoreClicked) {
+    fun setData(
+        answers: MutableList<String>,
+        answerDrawable: Drawable,
+        context: Context,
+        onUpdateScoreClicked: OnUpdateScoreClicked
+    ) {
         listAnswer.clear()
 
         listAnswer.addAll(answers)
@@ -65,19 +73,50 @@ class ValidatorTestAdapter : RecyclerView.Adapter<ValidatorTestAdapter.ViewHolde
                 tvQuestionItemValidator.text = question
                 tvAnswerItemValidator.text = answer
 
-                if (position == 4) {
-                    imgAnswerItemValidator.visibility = View.VISIBLE
-                    imgAnswerItemValidator.setImageDrawable(patientDrawable)
-                }
-
-                binding.btnUpdateScoreItemValidator.setOnClickListener {
-                    val score = binding.edtScoreItemValidator.editText?.text.toString().trim().toInt()
-                    onUpdateScoreClicked.updateScore(position, score)
+                when (position) {
+                    0 -> {
+                        initSpinner(arrayListOf(0, 1, 2, 3, 4, 5), position)
+                    }
+                    1 -> {
+                        initSpinner(arrayListOf(0, 1, 2, 3, 4, 5), position)
+                    }
+                    2 -> {
+                        initSpinner(arrayListOf(0, 1, 2), position)
+                    }
+                    3 -> {
+                        initSpinner(arrayListOf(0, 1), position)
+                    }
+                    4 -> {
+                        initSpinner(arrayListOf(0, 1), position)
+                        tvAnswerItemValidator.visibility = View.GONE
+                        imgAnswerItemValidator.visibility = View.VISIBLE
+                        imgAnswerItemValidator.setImageDrawable(patientDrawable)
+                    }
                 }
 
             }
         }
+
+        private fun initSpinner(point: ArrayList<Int>, position: Int) {
+            binding.spinnerPoint.setAdapter(
+                ArrayAdapter(
+                    context,
+                    R.layout.support_simple_spinner_dropdown_item,
+                    point
+                )
+            )
+            binding.spinnerPoint.inputType = InputType.TYPE_NULL
+
+            binding.spinnerPoint.setOnItemClickListener { _, _, _, _ ->
+                val score =
+                    binding.edtScoreItemValidator.editText?.text.toString().trim().toInt()
+                Log.d("Spinner", "Point selected: $score | $position")
+                onUpdateScoreClicked.updateScore(position, score)
+            }
+
+        }
     }
+
 
     interface OnUpdateScoreClicked {
         fun updateScore(position: Int, score: Int)

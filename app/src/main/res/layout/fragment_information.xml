@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/img_logo_app"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -30,6 +30,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/information"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/img_logo_app"
             app:layout_constraintStart_toStartOf="@+id/img_logo_app"

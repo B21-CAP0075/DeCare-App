@@ -1,10 +1,13 @@
 package com.aemiralfath.decare.ui.earlydetection.introduction
 
+import android.content.Context
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
@@ -136,22 +139,7 @@ class DataPatientFragment : Fragment() {
                 GENDER
             )
         )
-
-        binding.spinnerGender.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                Log.d("Spinner", "Gender selected: ${GENDER[position]}")
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
-        }
+        binding.spinnerGender.inputType = InputType.TYPE_NULL
 
         binding.spinnerEduc.setAdapter(
             ArrayAdapter(
@@ -160,6 +148,8 @@ class DataPatientFragment : Fragment() {
                 EDUC
             )
         )
+        binding.spinnerEduc.inputType = InputType.TYPE_NULL
+
 
         binding.spinnerSes.setAdapter(
             ArrayAdapter(
@@ -168,6 +158,7 @@ class DataPatientFragment : Fragment() {
                 SES
             )
         )
+        binding.spinnerSes.inputType = InputType.TYPE_NULL
 
     }
 

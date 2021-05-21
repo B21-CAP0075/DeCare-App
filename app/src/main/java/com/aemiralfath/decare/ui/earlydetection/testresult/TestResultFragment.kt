@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aemiralfath.decare.data.Resource
 import com.aemiralfath.decare.databinding.FragmentTestResultBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -40,6 +39,8 @@ class TestResultFragment : Fragment() {
         binding.btnPredictTestResult.setOnClickListener {
             viewModel.predict().observe(viewLifecycleOwner, {
                 Log.d("ViewModelTest", "$it")
+                val predict = "${it.prediction} (${it.confident}%)"
+                binding.tvPredictResultTestResult.text = predict
             })
         }
     }

@@ -1,11 +1,10 @@
 package com.aemiralfath.decare.ui.earlydetection.validatortest
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aemiralfath.decare.R
@@ -18,7 +17,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClicked {
 
     private var _binding: FragmentValidatorTestBinding? = null
-    private val binding  get() = _binding as FragmentValidatorTestBinding
+    private val binding get() = _binding as FragmentValidatorTestBinding
 
     private val viewModel: EarlyDetectionViewModel by viewModel()
 
@@ -43,13 +42,10 @@ class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClic
 
         binding.btnCheckScoreValidator.setOnClickListener {
             viewModel.logAllScore()
-        }
-
-        binding.btnSubmitScoreValidator.setOnClickListener {
             viewModel.updatePatientMMSE()
-
             findNavController().navigate(R.id.action_validatorTestFragment_to_testResultFragment)
         }
+
     }
 
     private fun setupRecyclerview(data: PatientAnswer) {
@@ -74,7 +70,7 @@ class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClic
     }
 
     override fun updateScore(position: Int, score: Int) {
-        when(position) {
+        when (position) {
             0 -> { //jawaban no 1
                 val number = QuestionNumber.ONE
                 viewModel.updatePatientScore(score, number)
