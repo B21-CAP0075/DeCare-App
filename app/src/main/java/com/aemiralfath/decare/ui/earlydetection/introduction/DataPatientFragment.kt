@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -135,6 +136,22 @@ class DataPatientFragment : Fragment() {
                 GENDER
             )
         )
+
+        binding.spinnerGender.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                Log.d("Spinner", "Gender selected: ${GENDER[position]}")
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
 
         binding.spinnerEduc.setAdapter(
             ArrayAdapter(
