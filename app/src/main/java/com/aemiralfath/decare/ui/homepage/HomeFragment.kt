@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentHomeBinding
 import com.aemiralfath.decare.ui.login.LoginActivity
-import com.aemiralfath.decare.util.DummyBannerGenerator
+import com.aemiralfath.decare.util.BannerGenerator
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -72,7 +73,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupBanner() {
-        val listBanner = DummyBannerGenerator.generateDummyBanner()
+        val listBanner = BannerGenerator.generateDummyBanner()
         val bannerAdapter = BannerAdapter()
         bannerAdapter.setBanners(listBanner)
 
@@ -87,30 +88,26 @@ class HomeFragment : Fragment() {
         firebaseAuth.signOut()
         signInClient.signOut()
         startActivity(Intent(activity, LoginActivity::class.java))
-        activity?.onBackPressed()
+        activity?.finish()
     }
 
     private fun onFeatureClickListener() {
         with(binding) {
-//            cardEarlyDetectionFeatureHome.setOnClickListener {
-//                startActivity(Intent(binding.root.context, EarlyDetectionActivity::class.java))
-//            }
-//
-//            cardScheduleFeatureHome.setOnClickListener {
-//
-//            }
-//
-//            cardExerciseFeatureHome.setOnClickListener {
-//
-//            }
-//
-//            cardRecapitulationFeatureHome.setOnClickListener {
-//
-//            }
-//
-//            cardGuideFeatureHome.setOnClickListener {
-//
-//            }
+            cardEarlyDetectionFeatureHome.setOnClickListener {
+                startActivity(Intent(binding.root.context, EarlyDetectionActivity::class.java))
+            }
+
+            cardScheduleFeatureHome.setOnClickListener {
+                Toast.makeText(binding.root.context, "Coming soon!", Toast.LENGTH_SHORT).show()
+            }
+
+            cardExerciseFeatureHome.setOnClickListener {
+                Toast.makeText(binding.root.context, "Coming soon!", Toast.LENGTH_SHORT).show()
+            }
+
+            cardAppGuideFeatureHome.setOnClickListener {
+                Toast.makeText(binding.root.context, "Coming soon!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

@@ -118,8 +118,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_early_detection_feature_home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
@@ -134,8 +134,8 @@
 
                 <ImageView
                     android:id="@+id/imageView7"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_early_detection"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -151,6 +151,7 @@
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
                     android:text="@string/early_detection"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -165,8 +166,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_exercise_feature_home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
@@ -182,8 +183,8 @@
 
                 <ImageView
                     android:id="@+id/imageView8"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_exercise"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -199,6 +200,7 @@
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
                     android:text="@string/exercise"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -213,8 +215,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_schedule_feature_home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
@@ -231,8 +233,8 @@
 
                 <ImageView
                     android:id="@+id/imageView9"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_schedule"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -248,6 +250,7 @@
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
                     android:text="@string/schedule"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -262,8 +265,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_app_guide_feature_home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
@@ -297,6 +300,7 @@
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
                     android:text="@string/application_guide"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
