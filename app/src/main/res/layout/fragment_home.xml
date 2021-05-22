@@ -93,7 +93,7 @@
             android:layout_width="225dp"
             android:layout_height="200dp"
             android:elevation="1dp"
-            android:src="@drawable/img_home_backdrop"
+            android:src="@drawable/img_backdrop_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
