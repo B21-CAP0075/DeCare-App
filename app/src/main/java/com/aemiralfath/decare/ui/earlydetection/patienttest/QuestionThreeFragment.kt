@@ -64,7 +64,7 @@ class QuestionThreeFragment : Fragment() {
             .setMaxStreams(1)
             .build()
 
-        sp.setOnLoadCompleteListener { soundPool, sampleId, status ->
+        sp.setOnLoadCompleteListener { _, _, status ->
             if (status == 0) {
                 spLoaded = true
             } else {

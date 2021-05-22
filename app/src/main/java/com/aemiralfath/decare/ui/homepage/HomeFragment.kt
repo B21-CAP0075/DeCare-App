@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentHomeBinding
-import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionActivity
 import com.aemiralfath.decare.ui.login.LoginActivity
 import com.aemiralfath.decare.util.DummyBannerGenerator
 import com.google.android.gms.auth.api.signin.GoogleSignIn
