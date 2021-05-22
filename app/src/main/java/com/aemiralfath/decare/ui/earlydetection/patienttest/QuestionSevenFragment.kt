@@ -3,16 +3,16 @@ package com.aemiralfath.decare.ui.earlydetection.patienttest
 import android.media.SoundPool
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionSevenBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuestionSevenFragment : Fragment() {
 
@@ -22,6 +22,7 @@ class QuestionSevenFragment : Fragment() {
 
     private var _binding: FragmentQuestionSevenBinding? = null
     private val binding get() = _binding as FragmentQuestionSevenBinding
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +40,9 @@ class QuestionSevenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 7)
+        val questionCount =
+            String.format(resources.getString(R.string.question_count_placeholder), 7)
         binding.tvQuestionCountQuestionSeven.text = questionCount
-
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
 
         setupSoundPool()
 
@@ -66,7 +63,7 @@ class QuestionSevenFragment : Fragment() {
         sp = SoundPool.Builder()
             .setMaxStreams(1)
             .build()
-        sp.setOnLoadCompleteListener { soundPool, sampleId, status ->
+        sp.setOnLoadCompleteListener { _, _, status ->
             if (status == 0) {
                 spLoaded = true
             } else {
@@ -76,7 +73,7 @@ class QuestionSevenFragment : Fragment() {
         soundId = sp.load(binding.root.context, R.raw.jika_tidak_dan_atau_tapi, 1)
     }
 
-    private fun getAnswer() : String {
+    private fun getAnswer(): String {
         return binding.edtAnswerQuestionSeven.editText?.text.toString()
     }
 

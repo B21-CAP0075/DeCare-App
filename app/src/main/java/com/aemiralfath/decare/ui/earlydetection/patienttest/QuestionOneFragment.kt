@@ -12,11 +12,14 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionOneBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuestionOneFragment : Fragment() {
 
     private var _binding: FragmentQuestionOneBinding? = null
     private val binding get()= _binding as FragmentQuestionOneBinding
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,11 +39,6 @@ class QuestionOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 1)
         binding.tvQuestionCountQuestionOne.text = questionCount
-
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
 
         binding.btnNextQuestionOne.setOnClickListener {
 //            if (isValidate()) {

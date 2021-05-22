@@ -8,12 +8,12 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -48,21 +48,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="?android:attr/listDivider"
-                app:layout_constraintTop_toTopOf="@id/guideline2"
-                app:layout_constraintBottom_toBottomOf="@id/guideline2"/>
+                app:layout_constraintBottom_toBottomOf="@id/guideline2"
+                app:layout_constraintTop_toTopOf="@id/guideline2" />
 
             <TextView
                 android:id="@+id/tv_question_item_validator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                tools:text="@string/question2_orientation"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_item_answer_validator" />
+                app:layout_constraintTop_toBottomOf="@id/divider_item_answer_validator"
+                tools:text="@string/question2_orientation" />
+
 
             <TextView
                 android:id="@+id/tv_answer_item_validator"
@@ -72,6 +74,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBottom_toTopOf="@+id/edt_score_item_validator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -96,36 +99,33 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:src="@drawable/ic_launcher_background" />
 
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tv_answer_item_validator,img_answer_item_validator" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_score_item_validator"
-                android:layout_width="100dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barrier">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
+                    android:id="@+id/spinner_point"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:hint="@string/score"/>
+                    android:hint="@string/score" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btn_update_score_item_validator"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:text="@string/give_score"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/edt_score_item_validator"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/edt_score_item_validator" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

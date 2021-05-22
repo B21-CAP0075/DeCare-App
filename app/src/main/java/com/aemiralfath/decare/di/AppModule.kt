@@ -7,6 +7,7 @@ import com.aemiralfath.decare.data.source.local.room.DecareDatabase
 import com.aemiralfath.decare.data.source.remote.RemoteDataSource
 import com.aemiralfath.decare.data.source.remote.network.DecareApiService
 import com.aemiralfath.decare.ui.article.ArticleViewModel
+import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.google.gson.GsonBuilder
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
@@ -43,4 +44,5 @@ val repositoryModule = module {
 
 val viewModelModule = module {
     viewModel { ArticleViewModel(get()) }
+    viewModel { EarlyDetectionViewModel(get()) }
 }

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +13,8 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionEightBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClickedListener {
 
@@ -26,6 +27,8 @@ class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClicked
 
     private lateinit var questionEightAdapter: QuestionEightAdapter
     var score = 0
+
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,11 +51,6 @@ class QuestionEightFragment : Fragment(), QuestionEightAdapter.OnItemLongClicked
             8
         )
         binding.tvQuestionCountQuestionEight.text = questionCount
-
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
 
         setupRecyclerView()
 

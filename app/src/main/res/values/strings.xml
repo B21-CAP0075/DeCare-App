@@ -7,10 +7,10 @@
     <string name="how_are_you">Bagaimana Kabarmu?</string>
     <string name="our_features">Fitur Kami</string>
     <string name="early_detection">Deteksi Dini</string>
-    <string name="schedule">Jadwal Kegiatan</string>
+    <string name="schedule">Jadwal</string>
     <string name="exercise">Olahraga</string>
     <string name="recapitulation">Rekap Kegiatan</string>
-    <string name="application_guide">Panduan Aplikasi</string>
+    <string name="application_guide">Panduan</string>
     <string name="google_logo">Google Logo</string>
     <string name="sign_in">Sign In</string>
     <string name="information">Informasi</string>
@@ -37,7 +37,6 @@
     <string name="name">Nama</string>
     <string name="age">Usia</string>
     <string name="gender">Jenis Kelamin</string>
-    <string name="input_data">Input Data</string>
     <string name="educ">Pendidikan terakhir</string>
     <string name="ses">Tingkat Sosial Ekonomi</string>
     <string name="question_count_placeholder">Pertanyaan ke %d/11</string>
@@ -79,7 +78,7 @@
     <string name="question10_registration">Di kelurahan mana anda tinggal ?</string>
     <string name="question10_helper_registration">Contoh: Dr. Sutomo</string>
     <string name="attraction_and_calculation">Perhatian dan Kalkulasi</string>
-    <string name="question_attraction_and_calculation">Eja kata "WAHYU" dari belakang</string>
+    <string name="question_attraction_and_calculation">Eja kata \"WAHYU\" dari belakang</string>
     <string name="answer">Jawaban</string>
     <string name="recall">Mengingat</string>
     <string name="question_recall">Sebut 3 obyek yang ada pada soal nomor 3</string>
@@ -90,7 +89,7 @@
     <string name="press_this_button">Tekan tombol ini</string>
     <string name="question_number_10">Tulis sebuah kalimat lengkap yang memiliki subject dan predikat</string>
     <string name="empty_error_field_message">Harap jawab pertanyaan ini</string>
-    <string name="question_number_11">Ikutilah Gambar 2 Segilima bersinggungan di bawah ini</string>
+    <string name="question_number_11">Ikutilah Gambar diatas</string>
     <string name="finish_test">Selesaikan Ujian</string>
     <string name="clicked_button">Tombol ini telah ditekan</string>
     <string name="first_question_validator">Sebutkan Jam, Hari, Tanggal, Bulan, Tahun</string>
@@ -101,4 +100,8 @@
     <string name="your_test_score">Hasil ujian MMSE anda adalah %d</string>
     <string name="predict">Lakukan Prediksi</string>
     <string name="image_splashscreen">Image Splashscreen</string>
+    <string name="empty">Form tidak boleh kosong</string>
+    <string name="input_data">Input Data</string>
+    <string name="reminder">Ingatlah ketiga obyek ini sampai akhir ujian</string>
+    <string name="result_predict">Hasil prediksi</string>
 </resources>

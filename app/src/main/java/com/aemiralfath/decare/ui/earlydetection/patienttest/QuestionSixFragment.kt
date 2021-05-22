@@ -11,11 +11,14 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionSixBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuestionSixFragment : Fragment() {
 
     private var _binding: FragmentQuestionSixBinding? = null
     private val binding get() = _binding as FragmentQuestionSixBinding
+    private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,11 +38,6 @@ class QuestionSixFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 6)
         binding.tvQuestionCountQuestionSix.text = questionCount
-
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
 
         binding.btnNextQuestionSix.setOnClickListener {
             viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.SIX)

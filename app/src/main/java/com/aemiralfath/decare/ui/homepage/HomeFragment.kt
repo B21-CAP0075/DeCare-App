@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentHomeBinding
-import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionActivity
 import com.aemiralfath.decare.ui.login.LoginActivity
 import com.aemiralfath.decare.util.DummyBannerGenerator
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -44,7 +43,7 @@ class HomeFragment : Fragment() {
         setupFirebase()
         setupHeader()
 
-        binding.layoutHeaderHome.imgUserProfileHeaderHome.setOnClickListener {
+        binding.imgUserProfileHeaderHome.setOnClickListener {
             signOut()
         }
 
@@ -69,7 +68,7 @@ class HomeFragment : Fragment() {
         val user = firebaseAuth.currentUser
         val greeting =
             String.format(resources.getString(R.string.greeting_placeholder), user?.displayName)
-        binding.layoutHeaderHome.tvGreetingHeaderHome.text = greeting
+        binding.tvGreetingHeaderHome.text = greeting
     }
 
     private fun setupBanner() {
@@ -77,8 +76,8 @@ class HomeFragment : Fragment() {
         val bannerAdapter = BannerAdapter()
         bannerAdapter.setBanners(listBanner)
 
-        val vp = binding.layoutHeaderHome.vpBannerHeaderHome
-        val indicators = binding.layoutHeaderHome.indicatorBannerHeaderHome
+        val vp = binding.vpBannerHeaderHome
+        val indicators = binding.indicatorBannerHeaderHome
 
         vp.adapter = bannerAdapter
         indicators.setViewPager(vp)
@@ -88,29 +87,30 @@ class HomeFragment : Fragment() {
         firebaseAuth.signOut()
         signInClient.signOut()
         startActivity(Intent(activity, LoginActivity::class.java))
+        activity?.onBackPressed()
     }
 
     private fun onFeatureClickListener() {
-        with(binding.layoutOurFeatureHome) {
-            cardEarlyDetectionFeatureHome.setOnClickListener {
-                startActivity(Intent(binding.root.context, EarlyDetectionActivity::class.java))
-            }
-
-            cardScheduleFeatureHome.setOnClickListener {
-
-            }
-
-            cardExerciseFeatureHome.setOnClickListener {
-
-            }
-
-            cardRecapitulationFeatureHome.setOnClickListener {
-
-            }
-
-            cardGuideFeatureHome.setOnClickListener {
-
-            }
+        with(binding) {
+//            cardEarlyDetectionFeatureHome.setOnClickListener {
+//                startActivity(Intent(binding.root.context, EarlyDetectionActivity::class.java))
+//            }
+//
+//            cardScheduleFeatureHome.setOnClickListener {
+//
+//            }
+//
+//            cardExerciseFeatureHome.setOnClickListener {
+//
+//            }
+//
+//            cardRecapitulationFeatureHome.setOnClickListener {
+//
+//            }
+//
+//            cardGuideFeatureHome.setOnClickListener {
+//
+//            }
         }
     }
 

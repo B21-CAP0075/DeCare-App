@@ -1,18 +1,22 @@
 package com.aemiralfath.decare.ui.earlydetection.introduction
 
+import android.content.Context
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.model.Patient
 import com.aemiralfath.decare.databinding.FragmentDataPatientBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DataPatientFragment : Fragment() {
 
@@ -45,6 +49,8 @@ class DataPatientFragment : Fragment() {
     private var _binding: FragmentDataPatientBinding? = null
     private val binding get() = _binding as FragmentDataPatientBinding
 
+    private val viewModel: EarlyDetectionViewModel by viewModel()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,25 +68,49 @@ class DataPatientFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         populateForm()
 
-        val viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.NewInstanceFactory()
-        ).get(EarlyDetectionViewModel::class.java)
-
-
         binding.btnStartExam.setOnClickListener {
-            val patient = Patient(
-                binding.edtPatientName.text.toString().trim(),
-                binding.edtPatientAge.text.toString().trim().toInt(),
-                checkGender(binding.spinnerGender.text.toString().trim()),
-                checkEduc(binding.spinnerEduc.text.toString().trim()),
-                checkSes(binding.spinnerSes.text.toString().trim())
-            )
 
-            Log.d(TAG, patient.toString())
-            viewModel.addData(patient)
+            val namePatient = binding.edtPatientName.text.toString().trim()
+            val agePatient = binding.edtPatientAge.text.toString().trim()
+            val genderPatient = binding.spinnerGender.text.toString().trim()
+            val educPatient = binding.spinnerEduc.text.toString().trim()
+            val sesPatient = binding.spinnerSes.text.toString().trim()
 
-            findNavController().navigate(R.id.action_dataPatientFragment_to_questionOneFragment)
+            when {
+                namePatient.isEmpty() -> {
+                    binding.edtPatientName.error = getString(R.string.empty)
+                }
+                agePatient.isEmpty() -> {
+                    binding.edtPatientAge.error = getString(R.string.empty)
+                }
+                genderPatient.isEmpty() || !GENDER.contains(genderPatient) -> {
+                    binding.spinnerGender.error = getString(R.string.empty)
+                    binding.spinnerGender.setText("")
+                }
+                educPatient.isEmpty() || !EDUC.contains(educPatient) -> {
+                    binding.spinnerEduc.error = getString(R.string.empty)
+                    binding.spinnerEduc.setText("")
+                }
+                sesPatient.isEmpty() || !SES.contains(sesPatient) -> {
+                    binding.spinnerSes.error = getString(R.string.empty)
+                    binding.spinnerSes.setText("")
+                }
+                else -> {
+                    val patient = Patient(
+                        namePatient,
+                        agePatient.toInt(),
+                        checkGender(genderPatient),
+                        checkEduc(educPatient),
+                        checkSes(sesPatient)
+                    )
+
+                    Log.d(TAG, patient.toString())
+                    viewModel.addData(patient)
+
+                    findNavController().navigate(R.id.action_dataPatientFragment_to_questionOneFragment)
+                }
+            }
+
         }
 
     }
@@ -109,6 +139,7 @@ class DataPatientFragment : Fragment() {
                 GENDER
             )
         )
+        binding.spinnerGender.inputType = InputType.TYPE_NULL
 
         binding.spinnerEduc.setAdapter(
             ArrayAdapter(
@@ -117,6 +148,8 @@ class DataPatientFragment : Fragment() {
                 EDUC
             )
         )
+        binding.spinnerEduc.inputType = InputType.TYPE_NULL
+
 
         binding.spinnerSes.setAdapter(
             ArrayAdapter(
@@ -125,6 +158,7 @@ class DataPatientFragment : Fragment() {
                 SES
             )
         )
+        binding.spinnerSes.inputType = InputType.TYPE_NULL
 
     }
 
