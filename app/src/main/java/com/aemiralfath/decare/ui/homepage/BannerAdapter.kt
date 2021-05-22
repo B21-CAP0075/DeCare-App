@@ -3,14 +3,14 @@ package com.aemiralfath.decare.ui.homepage
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.aemiralfath.decare.data.model.Banner
 import com.aemiralfath.decare.databinding.ItemBannerBinding
-import com.aemiralfath.decare.util.DummyBanner
 
 class BannerAdapter : RecyclerView.Adapter<BannerAdapter.ViewHolder>() {
 
-    private val listBanner = mutableListOf<DummyBanner>()
+    private val listBanner = mutableListOf<Banner>()
 
-    fun setBanners(banners: List<DummyBanner>) {
+    fun setBanners(banners: List<Banner>) {
         listBanner.clear()
         listBanner.addAll(banners)
         notifyDataSetChanged()
@@ -28,10 +28,13 @@ class BannerAdapter : RecyclerView.Adapter<BannerAdapter.ViewHolder>() {
 
     override fun getItemCount() = listBanner.size
 
-    inner class ViewHolder(private val binding: ItemBannerBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(banner: DummyBanner) {
+    inner class ViewHolder(private val binding: ItemBannerBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(banner: Banner) {
             with(binding) {
-                imgPhotoBanner.setImageResource(banner.photo)
+                imgPhotoBanner.setImageResource(banner.background)
+                binding.tvTitleItemBanner.text = banner.title
+                binding.tvBodyItemBanner.text = banner.body
             }
         }
     }
