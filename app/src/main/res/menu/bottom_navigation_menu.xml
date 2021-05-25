@@ -9,4 +9,8 @@
         android:id="@+id/articleFragment"
         android:title="@string/articles"
         android:icon="@drawable/ic_articles"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_profile"/>
 </menu>
