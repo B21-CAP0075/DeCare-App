@@ -104,4 +104,7 @@
     <string name="reminder">Ingatlah ketiga obyek ini sampai akhir ujian</string>
     <string name="result_predict">Hasil prediksi</string>
     <string name="profile">Data Diri</string>
+    <string name="email">Email</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="article">Artikel</string>
 </resources>
