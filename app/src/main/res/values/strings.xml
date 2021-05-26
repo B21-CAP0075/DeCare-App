@@ -103,4 +103,5 @@
     <string name="input_data">Input Data</string>
     <string name="reminder">Ingatlah ketiga obyek ini sampai akhir ujian</string>
     <string name="result_predict">Hasil prediksi</string>
+    <string name="profile">Data Diri</string>
 </resources>
