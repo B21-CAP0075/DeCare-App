@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentHomeBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionActivity
-import com.aemiralfath.decare.ui.login.LoginActivity
 import com.aemiralfath.decare.util.BannerGenerator
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -44,10 +43,6 @@ class HomeFragment : Fragment() {
 
         setupFirebase()
         setupHeader()
-
-        binding.imgUserProfileHeaderHome.setOnClickListener {
-            signOut()
-        }
 
         onFeatureClickListener()
     }
@@ -83,13 +78,6 @@ class HomeFragment : Fragment() {
 
         vp.adapter = bannerAdapter
         indicators.setViewPager(vp)
-    }
-
-    private fun signOut() {
-        firebaseAuth.signOut()
-        signInClient.signOut()
-        startActivity(Intent(activity, LoginActivity::class.java))
-        activity?.finish()
     }
 
     private fun onFeatureClickListener() {
