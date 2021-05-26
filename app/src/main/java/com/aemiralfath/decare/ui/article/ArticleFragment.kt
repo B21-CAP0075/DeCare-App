@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.Resource
 import com.aemiralfath.decare.databinding.FragmentArticleBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleFragment : Fragment() {
 
@@ -21,7 +20,7 @@ class ArticleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentArticleBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -37,7 +36,7 @@ class ArticleFragment : Fragment() {
 
         viewModel.article.observe(viewLifecycleOwner, {
             if (it != null) {
-                when(it) {
+                when (it) {
                     is Resource.Loading -> {
                         Log.d("ARTICLE", "LOADING")
                     }

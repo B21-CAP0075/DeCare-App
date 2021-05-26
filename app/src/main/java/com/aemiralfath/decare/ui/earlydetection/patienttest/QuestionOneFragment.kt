@@ -1,24 +1,21 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
-import android.text.TextUtils
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionOneBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
-import org.koin.android.viewmodel.ext.android.sharedViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class QuestionOneFragment : Fragment() {
 
     private var _binding: FragmentQuestionOneBinding? = null
-    private val binding get()= _binding as FragmentQuestionOneBinding
+    private val binding get() = _binding as FragmentQuestionOneBinding
     private val viewModel: EarlyDetectionViewModel by viewModel()
 
     override fun onCreateView(
@@ -37,7 +34,8 @@ class QuestionOneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 1)
+        val questionCount =
+            String.format(resources.getString(R.string.question_count_placeholder), 1)
         binding.tvQuestionCountQuestionOne.text = questionCount
 
         binding.btnNextQuestionOne.setOnClickListener {
@@ -70,7 +68,7 @@ class QuestionOneFragment : Fragment() {
 //        return true
 //    }
 
-    private fun getAnswer() : MutableList<String> {
+    private fun getAnswer(): MutableList<String> {
         val listAnswer = mutableListOf<String>()
 
         listAnswer.clear() // menghapus list supaya tidak ada duplicate

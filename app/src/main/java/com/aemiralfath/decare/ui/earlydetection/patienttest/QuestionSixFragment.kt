@@ -1,18 +1,16 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionSixBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
-import org.koin.android.viewmodel.ext.android.sharedViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class QuestionSixFragment : Fragment() {
 
@@ -36,7 +34,8 @@ class QuestionSixFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 6)
+        val questionCount =
+            String.format(resources.getString(R.string.question_count_placeholder), 6)
         binding.tvQuestionCountQuestionSix.text = questionCount
 
         binding.btnNextQuestionSix.setOnClickListener {
@@ -46,7 +45,7 @@ class QuestionSixFragment : Fragment() {
 
     }
 
-    private fun getAnswer() : MutableList<String> {
+    private fun getAnswer(): MutableList<String> {
         val listAnswer = mutableListOf<String>()
 
         listAnswer.clear() // menghapus list supaya tidak ada duplicate

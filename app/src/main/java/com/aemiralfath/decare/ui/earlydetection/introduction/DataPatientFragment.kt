@@ -1,14 +1,11 @@
 package com.aemiralfath.decare.ui.earlydetection.introduction
 
-import android.content.Context
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -16,7 +13,7 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.model.Patient
 import com.aemiralfath.decare.databinding.FragmentDataPatientBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DataPatientFragment : Fragment() {
 

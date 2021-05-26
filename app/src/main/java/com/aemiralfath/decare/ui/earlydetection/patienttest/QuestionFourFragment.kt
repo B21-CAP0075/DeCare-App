@@ -1,25 +1,21 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionFourBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
-import org.koin.android.viewmodel.ext.android.sharedViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class QuestionFourFragment : Fragment() {
 
     private var _binding: FragmentQuestionFourBinding? = null
-    private val binding get()= _binding as FragmentQuestionFourBinding
+    private val binding get() = _binding as FragmentQuestionFourBinding
     private val viewModel by viewModel<EarlyDetectionViewModel>()
 
     override fun onCreateView(
@@ -38,7 +34,8 @@ class QuestionFourFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val questionCount = String.format(resources.getString(R.string.question_count_placeholder), 4)
+        val questionCount =
+            String.format(resources.getString(R.string.question_count_placeholder), 4)
         binding.tvQuestionCountQuestionFour.text = questionCount
 
         binding.btnNextQuestionFour.setOnClickListener {
@@ -47,7 +44,7 @@ class QuestionFourFragment : Fragment() {
         }
     }
 
-    private fun getAnswer() : MutableList<Char> {
+    private fun getAnswer(): MutableList<Char> {
         val answer = binding.edtAnswerQuestionFour.editText?.text.toString()
         return answer.toMutableList()
     }

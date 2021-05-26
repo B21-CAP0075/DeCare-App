@@ -1,7 +1,6 @@
 package com.aemiralfath.decare.ui.earlydetection
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import com.aemiralfath.decare.data.DecareRepository
 import com.aemiralfath.decare.data.model.Patient
 import com.aemiralfath.decare.util.QuestionNumber

@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.ItemQuestionEightBinding
 
 class QuestionEightAdapter : RecyclerView.Adapter<QuestionEightAdapter.ViewHolder>() {
@@ -40,7 +39,10 @@ class QuestionEightAdapter : RecyclerView.Adapter<QuestionEightAdapter.ViewHolde
 
     override fun getItemCount() = 3
 
-    inner class ViewHolder(private val binding: ItemQuestionEightBinding, private val longClickListener: OnItemLongClickedListener) :
+    inner class ViewHolder(
+        private val binding: ItemQuestionEightBinding,
+        private val longClickListener: OnItemLongClickedListener
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(command: String, imgCommand: Int) {

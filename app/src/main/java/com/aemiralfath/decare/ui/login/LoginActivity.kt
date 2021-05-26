@@ -1,10 +1,13 @@
 package com.aemiralfath.decare.ui.login
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.ActivityLoginBinding
@@ -22,13 +25,14 @@ import com.google.firebase.auth.GoogleAuthProvider
 class LoginActivity : AppCompatActivity() {
 
     companion object {
-        private const val RC_SIGN_IN: Int = 9001
         private const val TAG: String = "LoginActivity"
     }
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var signInClient: GoogleSignInClient
     private lateinit var binding: ActivityLoginBinding
+
+    private lateinit var loginResult: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,23 +52,24 @@ class LoginActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN) {
-            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
-                if (account != null) {
-                    firebaseAuthWithGoogle(account)
-                } else {
-                    Log.w(TAG, "Google sign in failed Null")
+        loginResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val task: Task<GoogleSignInAccount> =
+                        GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                    try {
+                        val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
+                        if (account != null) {
+                            firebaseAuthWithGoogle(account)
+                        } else {
+                            Log.w(TAG, "Google sign in failed Null")
+                        }
+                    } catch (e: ApiException) {
+                        Log.w(TAG, "Google sign in failed", e)
+                    }
                 }
-            } catch (e: ApiException) {
-                Log.w(TAG, "Google sign in failed", e)
             }
-        }
+
     }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
@@ -93,6 +98,7 @@ class LoginActivity : AppCompatActivity() {
     private fun signIn() {
         binding.progressBar.visibility = View.VISIBLE
         val signInIntent: Intent = signInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+
+        loginResult.launch(signInIntent)
     }
 }

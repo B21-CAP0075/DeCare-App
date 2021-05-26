@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.aemiralfath.decare.databinding.FragmentTestResultBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TestResultFragment : Fragment() {
 

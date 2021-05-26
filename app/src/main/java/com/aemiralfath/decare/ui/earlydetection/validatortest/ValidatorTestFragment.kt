@@ -12,7 +12,7 @@ import com.aemiralfath.decare.data.model.PatientAnswer
 import com.aemiralfath.decare.databinding.FragmentValidatorTestBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClicked {
 
