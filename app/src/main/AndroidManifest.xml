@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeCare"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.exercise.ExerciseActivity"></activity>
+        <activity android:name=".ui.exercise.YogaActivity"></activity>
+        <activity android:name=".ui.exercise.ExerciseActivity" />
         <activity android:name=".ui.splashscreen.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

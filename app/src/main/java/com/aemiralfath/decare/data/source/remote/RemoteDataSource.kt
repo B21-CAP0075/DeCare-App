@@ -7,6 +7,7 @@ import com.aemiralfath.decare.data.source.remote.network.ApiResponse
 import com.aemiralfath.decare.data.source.remote.network.DecareApiService
 import com.aemiralfath.decare.data.source.remote.response.article.ArticleResponse
 import com.aemiralfath.decare.data.source.remote.response.prediction.PredictionResponse
+import com.aemiralfath.decare.data.source.remote.response.yoga.YogaResponse
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -17,6 +18,23 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RemoteDataSource(private val decareApiService: DecareApiService) {
+
+    fun getYoga(): Flow<ApiResponse<YogaResponse>> {
+        return flow {
+            try {
+                val yogas = decareApiService.getYoga()
+
+                if (yogas.isNotEmpty()) {
+                    emit(ApiResponse.Success(yogas))
+                }else {
+                    emit(ApiResponse.Empty)
+                }
+
+            }catch (e: Exception) {
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 
     fun getArticle(): Flow<ApiResponse<ArticleResponse>> {
         return flow {
