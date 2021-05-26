@@ -46,10 +46,6 @@ class HomeFragment : Fragment() {
         setupFirebase()
         setupHeader()
 
-        binding.imgUserProfileHeaderHome.setOnClickListener {
-            signOut()
-        }
-
         onFeatureClickListener()
     }
 
@@ -84,13 +80,6 @@ class HomeFragment : Fragment() {
 
         vp.adapter = bannerAdapter
         indicators.setViewPager(vp)
-    }
-
-    private fun signOut() {
-        firebaseAuth.signOut()
-        signInClient.signOut()
-        startActivity(Intent(activity, LoginActivity::class.java))
-        activity?.finish()
     }
 
     private fun onFeatureClickListener() {
