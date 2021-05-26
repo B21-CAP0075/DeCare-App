@@ -11,10 +11,12 @@ import com.aemiralfath.decare.data.model.PatientTestScore
 import com.aemiralfath.decare.data.source.local.LocalDataSource
 import com.aemiralfath.decare.data.source.local.entity.ArticleEntity
 import com.aemiralfath.decare.data.source.local.entity.PredictionEntity
+import com.aemiralfath.decare.data.source.local.entity.YogaEntity
 import com.aemiralfath.decare.data.source.remote.RemoteDataSource
 import com.aemiralfath.decare.data.source.remote.network.ApiResponse
 import com.aemiralfath.decare.data.source.remote.response.article.ArticleResponse
 import com.aemiralfath.decare.data.source.remote.response.prediction.PredictionResponse
+import com.aemiralfath.decare.data.source.remote.response.yoga.YogaResponse
 import com.aemiralfath.decare.util.AnyConverter
 import com.aemiralfath.decare.util.JsonObjectConverter
 import com.aemiralfath.decare.util.Mapper
@@ -248,6 +250,27 @@ class DecareRepository(
             }
         }
     }
+
+    fun getYoga(): Flow<Resource<List<YogaEntity>>> =
+        object : NetworkBoundResource<List<YogaEntity>, YogaResponse>() {
+            override fun loadFromDB(): Flow<List<YogaEntity>> {
+                return localDataSource.getYoga()
+            }
+
+            override fun shouldFetch(data: List<YogaEntity>?): Boolean {
+                return data == null || data.isEmpty()
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<YogaResponse>> {
+                return remoteDataSource.getYoga()
+            }
+
+            override suspend fun saveCallResult(data: YogaResponse) {
+                val yogaEntities = Mapper.mapResponseToEntityYoga(data)
+                localDataSource.insertYoga(yogaEntities)
+            }
+
+        }.asFlow()
 
     fun getArticle(): Flow<Resource<List<ArticleEntity>>> =
         object : NetworkBoundResource<List<ArticleEntity>, ArticleResponse>() {

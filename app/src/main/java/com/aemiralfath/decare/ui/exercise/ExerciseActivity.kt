@@ -1,8 +1,8 @@
 package com.aemiralfath.decare.ui.exercise
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.ActivityExerciseBinding
 
 class ExerciseActivity : AppCompatActivity() {
@@ -13,5 +13,9 @@ class ExerciseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnStartYoga.setOnClickListener {
+            startActivity(Intent(this, YogaActivity::class.java))
+        }
     }
 }

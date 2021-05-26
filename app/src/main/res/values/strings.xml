@@ -104,6 +104,9 @@
     <string name="reminder">Ingatlah ketiga obyek ini sampai akhir ujian</string>
     <string name="result_predict">Hasil prediksi</string>
     <string name="profile">Data Diri</string>
+    <string name="yoga_exercise">Mari Latihan Yoga bersama DeCare!</string>
+    <string name="start_yoga">Mulai Yoga</string>
+    <string name="finish_yoga">Selesai Yoga</string>
     <string name="email">Email</string>
     <string name="sign_out">Sign Out</string>
     <string name="article">Artikel</string>
