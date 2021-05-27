@@ -13,24 +13,20 @@
     <string name="google_logo">Google Logo</string>
     <string name="sign_in">Sign In</string>
     <string name="information">Informasi</string>
-    <string name="information_value">
-        1. Pada test ini user akan melakukan test pendeteksian dini penyakit demensia menggunakan screening MMSE.\n\n
-        2. Data user dan hasil test MMSE akan dianalisis dan dilakukan proses prediksi Machine Learning.\n\n
-        3. User yang akan melakukan test membutuhkan 1 orang pendamping sebagai caregiver/validator.\n\n
-        4. Tugas caregiver/validator adalah membantu user dalam melakukan test tanpa memberi jawaban kepada user.\n\n
-        5. Setelah user selesai mengerjakan test, caregiver/validator memeriksa beberapa jawaban user yang harus diperiksa secara manual.
-    </string>
+    <string name="information_1">Pada test ini user akan melakukan test pendeteksian dini penyakit demensia menggunakan screening MMSE.</string>
+    <string name="information_2">Data user dan hasil test MMSE akan dianalisis dan dilakukan proses prediksi Machine Learning.</string>
+    <string name="information_3">User yang akan melakukan test membutuhkan 1 orang pendamping sebagai caregiver/validator.</string>
+    <string name="information_4">Tugas caregiver/validator adalah membantu user dalam melakukan test tanpa memberi jawaban kepada user.</string>
+    <string name="information_5">Setelah user selesai mengerjakan test, caregiver/validator memeriksa beberapa jawaban user yang harus diperiksa secara manual.</string>
     <string name="instruction">Instruksi</string>
-    <string name="instruction_value">
-        1. User dan Caregiver memahami informasi dan instruksi pada test sebelum memulai ujian.\n\n
-        2. User memasukkan data pengguna yang dibutuhkan untuk prediksi Machine Learning.\n\n
-        3. User melakukan test pada aplikasi, caregiver/validator mendampingi proses ujian user.\n\n
-        4. User selesai melakukan test, caregiver/validator memeriksa jawaban user.\n\n
-        5. Hasil test MMSE ditampilkan.\n\n
-        6. User atau Caregiver menekan tombol prediksi Machine Learning.\n\n
-        7. Hasil prediksi Machine Learning ditampilkan pada aplikasi.\n\n
-        8. Aplikasi memberikan saran dan informasi dari hasil test.
-    </string>
+    <string name="instruction_1">User dan Caregiver memahami informasi dan instruksi pada test sebelum memulai ujian.</string>
+    <string name="instruction_2">User memasukkan data pengguna yang dibutuhkan untuk prediksi Machine Learning.</string>
+    <string name="instruction_3">User melakukan test pada aplikasi, caregiver/validator mendampingi proses ujian user.</string>
+    <string name="instruction_4">User selesai melakukan test, caregiver/validator memeriksa jawaban user.</string>
+    <string name="instruction_5">Hasil test MMSE ditampilkan.</string>
+    <string name="instruction_6">User atau Caregiver menekan tombol prediksi Machine Learning.</string>
+    <string name="instruction_7">Hasil prediksi Machine Learning ditampilkan pada aplikasi.</string>
+    <string name="instruction_8">Aplikasi memberikan saran dan informasi dari hasil test.</string>
     <string name="start_exam">Mulai Ujian</string>
     <string name="next">Selanjutnya</string>
     <string name="name">Nama</string>
@@ -38,7 +34,7 @@
     <string name="gender">Jenis Kelamin</string>
     <string name="educ">Pendidikan terakhir</string>
     <string name="ses">Tingkat Sosial Ekonomi</string>
-    <string name="question_count_placeholder">Pertanyaan ke %d/11</string>
+    <string name="question_count_placeholder">Pertanyaan ke %d dari 11</string>
     <string name="orientation">Orientasi</string>
     <string name="question1_orientation">Jam berapa sekarang  ?</string>
     <string name="question2_orientation">Hari apa sekarang ?</string>
@@ -67,7 +63,7 @@
     <string name="third_object">Obyek ketiga</string>
     <string name="registration">Registration</string>
     <string name="question6_registration">Di negara mana anda tinggal ?</string>
-    <string name="question6_helper_registration">Contoh: Indonesia</string>
+    <string name="question6_helper_registration">Contoh: Amerika</string>
     <string name="question7_registration">Di provinsi mana anda tinggal ?</string>
     <string name="question7_helper_registration">Contoh: Jawa Timur</string>
     <string name="question8_registration">Di Kota mana anda tinggal ?</string>
@@ -82,7 +78,7 @@
     <string name="recall">Mengingat</string>
     <string name="question_recall">Sebut 3 obyek yang ada pada soal nomor 3</string>
     <string name="Language">Bahasa</string>
-    <string name="question_bahasa">Sebutkan nama 2 benda pada foto diatas</string>
+    <string name="question_bahasa">Sebutkan nama dari 2 benda pada foto diatas</string>
     <string name="question_bahasa_5_kata">Dengarkan suara dengan cara tekan tombol di atas, kemudian tuliskan 5 kata yang anda dengar secara urut</string>
     <string name="question_number_eight">Lakukan 3 perintah seperti di bawah ini:</string>
     <string name="press_this_button">Tekan tombol ini</string>
