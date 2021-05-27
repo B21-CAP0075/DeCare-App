@@ -1,10 +1,9 @@
 package com.aemiralfath.decare.data.source.local.room
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.aemiralfath.decare.data.source.local.entity.ArticleEntity
+import com.aemiralfath.decare.data.source.local.entity.ReminderEntity
 import com.aemiralfath.decare.data.source.local.entity.YogaEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -22,5 +21,17 @@ interface DecareDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertYoga(listYoga: List<YogaEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertReminder(reminder: ReminderEntity)
+
+    @Update
+    suspend fun updateReminder(reminder: ReminderEntity)
+
+    @Delete
+    suspend fun deleteReminder(reminder: ReminderEntity)
+
+    @RawQuery(observedEntities = [ReminderEntity::class])
+    fun getAllReminder(query: SupportSQLiteQuery): Flow<List<ReminderEntity>>
 
 }

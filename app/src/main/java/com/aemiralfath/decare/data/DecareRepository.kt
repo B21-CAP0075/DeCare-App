@@ -3,28 +3,24 @@ package com.aemiralfath.decare.data
 import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import com.aemiralfath.decare.data.model.Patient
 import com.aemiralfath.decare.data.model.PatientAnswer
 import com.aemiralfath.decare.data.model.PatientTestScore
 import com.aemiralfath.decare.data.source.local.LocalDataSource
 import com.aemiralfath.decare.data.source.local.entity.ArticleEntity
-import com.aemiralfath.decare.data.source.local.entity.PredictionEntity
+import com.aemiralfath.decare.data.source.local.entity.ReminderEntity
 import com.aemiralfath.decare.data.source.local.entity.YogaEntity
 import com.aemiralfath.decare.data.source.remote.RemoteDataSource
 import com.aemiralfath.decare.data.source.remote.network.ApiResponse
 import com.aemiralfath.decare.data.source.remote.response.article.ArticleResponse
 import com.aemiralfath.decare.data.source.remote.response.prediction.PredictionResponse
 import com.aemiralfath.decare.data.source.remote.response.yoga.YogaResponse
-import com.aemiralfath.decare.util.AnyConverter
-import com.aemiralfath.decare.util.JsonObjectConverter
-import com.aemiralfath.decare.util.Mapper
-import com.aemiralfath.decare.util.QuestionNumber
-import com.google.gson.JsonObject
+import com.aemiralfath.decare.util.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 class DecareRepository(
     private val localDataSource: LocalDataSource,
@@ -292,6 +288,29 @@ class DecareRepository(
             }
 
         }.asFlow()
+
+    fun getReminder(sort: String): LiveData<List<ReminderEntity>> {
+        val query = SortUtils.getSortedQuery(sort)
+        return localDataSource.getReminder(query).asLiveData()
+    }
+
+    fun insertReminder(reminder: ReminderEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            localDataSource.insertReminder(reminder)
+        }
+    }
+
+    fun updateReminder(reminder: ReminderEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            localDataSource.updateReminder(reminder)
+        }
+    }
+
+    fun deleteReminder(reminder: ReminderEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            localDataSource.deleteReminder(reminder)
+        }
+    }
 
     fun predict(): LiveData<PredictionResponse> {
         val jsonPatient = JsonObjectConverter.convertPatientToJson(dataPatient)

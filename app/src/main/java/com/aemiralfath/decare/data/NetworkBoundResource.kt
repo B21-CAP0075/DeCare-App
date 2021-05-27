@@ -20,7 +20,8 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 }
                 is ApiResponse.Error -> {
                     onFetchFailed()
-                    emit(Resource.Error<ResultType>(apiResponse.errorMessage))
+                    val value: ResultType? = null
+                    emit(Resource.Error(apiResponse.errorMessage, value))
                 }
             }
         } else {

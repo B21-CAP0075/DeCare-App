@@ -29,7 +29,8 @@
         android:src="@drawable/pentagon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_question_count_question_eleven" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_question_count_question_eleven"
+        tools:ignore="ContentDescription"/>
 
     <TextView
         android:id="@+id/textView14"

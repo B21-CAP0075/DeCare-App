@@ -1,6 +1,5 @@
 package com.aemiralfath.decare.data.model
 
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -14,5 +13,5 @@ data class PatientAnswer(
     var secondAnswer: MutableList<String> = mutableListOf(),
     var sixthAnswer: MutableList<String> = mutableListOf(),
     var tenthAnswer: String = "",
-    var eleventhAnswer:  Drawable = ColorDrawable(Color.TRANSPARENT)
+    var eleventhAnswer: Drawable = ColorDrawable(Color.TRANSPARENT)
 )

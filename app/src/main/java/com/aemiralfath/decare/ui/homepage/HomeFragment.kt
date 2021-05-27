@@ -11,7 +11,7 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentHomeBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionActivity
 import com.aemiralfath.decare.ui.exercise.ExerciseActivity
-import com.aemiralfath.decare.ui.login.LoginActivity
+import com.aemiralfath.decare.ui.reminder.ReminderActivity
 import com.aemiralfath.decare.util.BannerGenerator
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -89,7 +89,7 @@ class HomeFragment : Fragment() {
             }
 
             cardScheduleFeatureHome.setOnClickListener {
-                Toast.makeText(binding.root.context, "Coming soon!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(binding.root.context, ReminderActivity::class.java))
             }
 
             cardExerciseFeatureHome.setOnClickListener {
