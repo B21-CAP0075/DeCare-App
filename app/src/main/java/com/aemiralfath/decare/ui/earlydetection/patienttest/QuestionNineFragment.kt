@@ -10,6 +10,7 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionNineBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.util.QuestionNumber
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class QuestionNineFragment : Fragment() {
@@ -47,8 +48,16 @@ class QuestionNineFragment : Fragment() {
         }
 
         binding.btnNextQuestionNine.setOnClickListener {
-            viewModel.updatePatientAnswer(isClicked, QuestionNumber.NINE)
-            findNavController().navigate(R.id.action_questionNineFragment_to_questionTenFragment)
+            if (isClicked) {
+                viewModel.updatePatientAnswer(isClicked, QuestionNumber.NINE)
+                findNavController().navigate(R.id.action_questionNineFragment_to_questionTenFragment)
+            } else {
+                Snackbar.make(
+                    binding.root,
+                    resources.getString(R.string.error_next_question),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 }

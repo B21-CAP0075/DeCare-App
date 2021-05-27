@@ -21,4 +21,6 @@ class EarlyDetectionViewModel(private val decareRepository: DecareRepository) : 
         decareRepository.updatePatientAnswer(answer, questionNumber)
 
     fun predict() = decareRepository.predict()
+
+    val loadingStatePrediction = decareRepository.loadingStatePrediction
 }
