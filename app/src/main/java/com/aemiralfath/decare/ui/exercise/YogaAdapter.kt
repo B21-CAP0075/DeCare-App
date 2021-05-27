@@ -3,9 +3,11 @@ package com.aemiralfath.decare.ui.exercise
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.source.local.entity.YogaEntity
 import com.aemiralfath.decare.databinding.ItemYogaBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 class YogaAdapter : RecyclerView.Adapter<YogaAdapter.ViewHolder>(){
 
@@ -33,6 +35,10 @@ class YogaAdapter : RecyclerView.Adapter<YogaAdapter.ViewHolder>(){
         fun bind(yoga: YogaEntity) {
             Glide.with(binding.root.context)
                 .load(yoga.gambar)
+                .apply(
+                    RequestOptions.placeholderOf(R.drawable.ic_loading)
+                        .error(R.drawable.ic_error)
+                )
                 .into(binding.imgPhotoItemYoga)
             binding.tvTitleItemYoga.text = yoga.namaPose
             binding.tvDescriptionItemYoga.text = yoga.deskripsi
