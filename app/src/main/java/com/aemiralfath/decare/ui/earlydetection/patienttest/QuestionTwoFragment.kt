@@ -1,6 +1,7 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,8 +40,10 @@ class QuestionTwoFragment : Fragment() {
         binding.tvQuestionCountQuestionTwo.text = questionCount
 
         binding.btnNextQuestionTwo.setOnClickListener {
-            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.TWO)
-            findNavController().navigate(R.id.action_questionTwoFragment_to_questionThreeFragment)
+            if (isValidate()) {
+                viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.TWO)
+                findNavController().navigate(R.id.action_questionTwoFragment_to_questionThreeFragment)
+            }
         }
 
     }
@@ -57,6 +60,31 @@ class QuestionTwoFragment : Fragment() {
         listAnswer.add(binding.edtKelurahanQuestionTwo.editText?.text.toString())
 
         return listAnswer
+    }
+
+    private fun isValidate(): Boolean {
+        if (TextUtils.isEmpty(binding.edtCountryQuestionTwo.editText?.text)) {
+            binding.edtCountryQuestionTwo.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtProvinceQuestionTwo.editText?.text)) {
+            binding.edtProvinceQuestionTwo.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtCityQuestionTwo.editText?.text)) {
+            binding.edtCityQuestionTwo.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtKecamatanQuestionTwo.editText?.text)) {
+            binding.edtKecamatanQuestionTwo.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtKelurahanQuestionTwo.editText?.text)) {
+            binding.edtKelurahanQuestionTwo.error = resources.getString(R.string.empty)
+            return false
+        }
+
+        return true
     }
 
 }

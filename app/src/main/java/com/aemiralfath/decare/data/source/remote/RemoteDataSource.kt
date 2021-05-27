@@ -19,6 +19,8 @@ import retrofit2.Response
 
 class RemoteDataSource(private val decareApiService: DecareApiService) {
 
+    val loadingStatePrediction = MutableLiveData<Boolean>()
+
     fun getYoga(): Flow<ApiResponse<YogaResponse>> {
         return flow {
             try {
@@ -55,6 +57,8 @@ class RemoteDataSource(private val decareApiService: DecareApiService) {
     fun getPrediction(json: JsonObject): LiveData<PredictionResponse> {
         val prediction = MutableLiveData<PredictionResponse>()
 
+        loadingStatePrediction.value = true
+
         val client = decareApiService.predict(json)
         client.enqueue(object : Callback<PredictionResponse> {
             override fun onResponse(
@@ -66,9 +70,11 @@ class RemoteDataSource(private val decareApiService: DecareApiService) {
                     prediction.value = it
                     Log.d("ViewModelTest", "RemoteDataSource getPrediction: $it")
                 }
+                loadingStatePrediction.value = false
             }
 
             override fun onFailure(call: Call<PredictionResponse>, t: Throwable) {
+                loadingStatePrediction.value = false
                 Log.d("ViewModelTest", "RemoteDataSource getPrediction: error with message ${t.message}")
             }
 

@@ -34,6 +34,8 @@ class DecareRepository(
     private val dataPatientTestScore = PatientTestScore()
     private val dataPatientAnswer = PatientAnswer()
 
+    val loadingStatePrediction: LiveData<Boolean> = remoteDataSource.loadingStatePrediction
+
     fun getPatientAnswers() = dataPatientAnswer
     fun getPatientData() = dataPatient
 

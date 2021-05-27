@@ -83,7 +83,6 @@
     <string name="question_number_eight">Lakukan 3 perintah seperti di bawah ini:</string>
     <string name="press_this_button">Tekan tombol ini</string>
     <string name="question_number_10">Tulis sebuah kalimat lengkap yang memiliki subject dan predikat</string>
-    <string name="empty_error_field_message">Harap jawab pertanyaan ini</string>
     <string name="question_number_11">Ikutilah Gambar diatas</string>
     <string name="finish_test">Selesaikan Ujian</string>
     <string name="clicked_button">Tombol ini telah ditekan</string>
@@ -96,7 +95,7 @@
     <string name="predict">Lakukan Prediksi</string>
     <string name="image_splashscreen">Image Splashscreen</string>
     <string name="empty">Form tidak boleh kosong</string>
-    <string name="input_data">Input Data</string>
+    <string name="input_data">Masukkan Data</string>
     <string name="reminder">Ingatlah ketiga obyek ini sampai akhir ujian</string>
     <string name="result_predict">Hasil prediksi</string>
     <string name="profile">Data Diri</string>
@@ -106,4 +105,9 @@
     <string name="email">Email</string>
     <string name="sign_out">Sign Out</string>
     <string name="article">Artikel</string>
+    <string name="validator_page">Halaman Validator</string>
+    <string name="early_detection_demensia">Deteksi Dini Demensia</string>
+    <string name="test_result_greeting">Selamat! %s telah menyelesaikan ujian MMSE dengan nilai :</string>
+    <string name="back_to_home">Kembali ke Beranda</string>
+    <string name="error_next_question">Harap ikuti instruksi sebelum lanjut ke soal berikutnya</string>
 </resources>
