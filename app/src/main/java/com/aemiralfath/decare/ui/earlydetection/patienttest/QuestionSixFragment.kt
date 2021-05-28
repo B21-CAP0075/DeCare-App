@@ -1,6 +1,7 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,8 +40,10 @@ class QuestionSixFragment : Fragment() {
         binding.tvQuestionCountQuestionSix.text = questionCount
 
         binding.btnNextQuestionSix.setOnClickListener {
-            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.SIX)
-            findNavController().navigate(R.id.action_questionSixFragment_to_questionSevenFragment)
+            if (isValidate()) {
+                viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.SIX)
+                findNavController().navigate(R.id.action_questionSixFragment_to_questionSevenFragment)
+            }
         }
 
     }
@@ -54,6 +57,19 @@ class QuestionSixFragment : Fragment() {
         listAnswer.add(binding.edtSecondObjectQuestionSix.editText?.text.toString())
 
         return listAnswer
+    }
+
+    private fun isValidate(): Boolean {
+        if (TextUtils.isEmpty(binding.edtFirstObjectQuestionSix.editText?.text)) {
+            binding.edtFirstObjectQuestionSix.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtSecondObjectQuestionSix.editText?.text)) {
+            binding.edtSecondObjectQuestionSix.error = resources.getString(R.string.empty)
+            return false
+        }
+
+        return true
     }
 
 

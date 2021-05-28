@@ -1,6 +1,7 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,8 +40,10 @@ class QuestionFiveFragment : Fragment() {
         binding.tvQuestionCountQuestionFive.text = questionCount
 
         binding.btnNextQuestionFive.setOnClickListener {
-            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.FIVE)
-            findNavController().navigate(R.id.action_questionFiveFragment_to_questionSixFragment)
+            if (isValidate()) {
+                viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.FIVE)
+                findNavController().navigate(R.id.action_questionFiveFragment_to_questionSixFragment)
+            }
         }
 
     }
@@ -55,6 +58,23 @@ class QuestionFiveFragment : Fragment() {
         listAnswer.add(binding.edtThirdObjectQuestionFive.editText?.text.toString())
 
         return listAnswer
+    }
+
+    private fun isValidate(): Boolean {
+        if (TextUtils.isEmpty(binding.edtFirstObjectQuestionFive.editText?.text)) {
+            binding.edtFirstObjectQuestionFive.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtSecondObjectQuestionFive.editText?.text)) {
+            binding.edtSecondObjectQuestionFive.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtThirdObjectQuestionFive.editText?.text)) {
+            binding.edtThirdObjectQuestionFive.error = resources.getString(R.string.empty)
+            return false
+        }
+
+        return true
     }
 
 }

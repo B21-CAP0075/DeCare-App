@@ -46,7 +46,6 @@ class QuestionElevenFragment : Fragment() {
 
             findNavController().navigate(R.id.action_questionElevenFragment_to_validatorTestFragment)
         }
-
     }
 
 

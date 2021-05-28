@@ -1,6 +1,7 @@
 package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,13 +40,23 @@ class QuestionTenFragment : Fragment() {
         binding.tvQuestionCountQuestionTen.text = questionCount
 
         binding.btnNextQuestionTen.setOnClickListener {
-            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.TEN)
-            findNavController().navigate(R.id.action_questionTenFragment_to_questionElevenFragment)
+            if (isValidate()) {
+                viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.TEN)
+                findNavController().navigate(R.id.action_questionTenFragment_to_questionElevenFragment)
+            }
         }
 
     }
 
     private fun getAnswer() =
         binding.edtAnswerQuestionTen.editText?.text.toString()
+
+    private fun isValidate(): Boolean {
+        if (TextUtils.isEmpty(binding.edtAnswerQuestionTen.editText?.text)) {
+            binding.edtAnswerQuestionTen.error = resources.getString(R.string.empty)
+            return false
+        }
+        return true
+    }
 
 }

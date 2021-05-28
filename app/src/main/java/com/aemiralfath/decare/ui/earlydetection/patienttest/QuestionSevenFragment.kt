@@ -2,6 +2,7 @@ package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.media.SoundPool
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -53,8 +54,10 @@ class QuestionSevenFragment : Fragment() {
         }
 
         binding.btnNextQuestionSeven.setOnClickListener {
-            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.SEVEN)
-            findNavController().navigate(R.id.action_questionSevenFragment_to_questionEightFragment)
+            if (isValidate()) {
+                viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.SEVEN)
+                findNavController().navigate(R.id.action_questionSevenFragment_to_questionEightFragment)
+            }
         }
 
     }
@@ -75,6 +78,15 @@ class QuestionSevenFragment : Fragment() {
 
     private fun getAnswer(): String {
         return binding.edtAnswerQuestionSeven.editText?.text.toString()
+    }
+
+    private fun isValidate(): Boolean {
+        if (TextUtils.isEmpty(binding.edtAnswerQuestionSeven.editText?.text)) {
+            binding.edtAnswerQuestionSeven.error = resources.getString(R.string.empty)
+            return false
+        }
+
+        return true
     }
 
 }

@@ -13,6 +13,7 @@ import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionActivity
 import com.aemiralfath.decare.ui.exercise.ExerciseActivity
 import com.aemiralfath.decare.ui.reminder.ReminderActivity
 import com.aemiralfath.decare.util.BannerGenerator
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -68,6 +69,9 @@ class HomeFragment : Fragment() {
         val greeting =
             String.format(resources.getString(R.string.greeting_placeholder), user?.displayName)
         binding.tvGreetingHeaderHome.text = greeting
+        Glide.with(binding.root.context)
+            .load(user?.photoUrl)
+            .into(binding.imgUserProfileHeaderHome)
     }
 
     private fun setupBanner() {

@@ -2,6 +2,7 @@ package com.aemiralfath.decare.ui.earlydetection.patienttest
 
 import android.media.SoundPool
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -53,9 +54,28 @@ class QuestionThreeFragment : Fragment() {
         }
 
         binding.btnNextQuestionThree.setOnClickListener {
-            viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.THREE)
-            findNavController().navigate(R.id.action_questionThreeFragment_to_questionFourFragment)
+            if (isValidate()) {
+                viewModel.updatePatientAnswer(getAnswer(), QuestionNumber.THREE)
+                findNavController().navigate(R.id.action_questionThreeFragment_to_questionFourFragment)
+            }
         }
+    }
+
+    private fun isValidate(): Boolean {
+        if (TextUtils.isEmpty(binding.edtFirstObjectQuestionThree.editText?.text)) {
+            binding.edtFirstObjectQuestionThree.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtSecondObjectQuestionThree.editText?.text)) {
+            binding.edtSecondObjectQuestionThree.error = resources.getString(R.string.empty)
+            return false
+        }
+        if (TextUtils.isEmpty(binding.edtThirdObjectQuestionThree.editText?.text)) {
+            binding.edtThirdObjectQuestionThree.error = resources.getString(R.string.empty)
+            return false
+        }
+
+        return true
     }
 
     private fun setupSoundPool() {
@@ -85,22 +105,5 @@ class QuestionThreeFragment : Fragment() {
 
         return listAnswer
     }
-
-//    private fun calculate() : Int {
-//        var score = 0
-//
-//        if (binding.edtFirstObjectQuestionThree.editText?.text?.contains("apel", ignoreCase = true) == true) {
-//            score += 1
-//        }
-//
-//        if (binding.edtSecondObjectQuestionThree.editText?.text?.contains("meja", ignoreCase = true) == true) {
-//            score += 1
-//        }
-//
-//        if (binding.edtThirdObjectQuestionThree.editText?.text?.contains("koin", ignoreCase = true) == true) {
-//            score += 1
-//        }
-//        return score
-//    }
 
 }
