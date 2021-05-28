@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.aemiralfath.decare.data.DecareRepository
 
-class YogaViewModel(private val decareRepository: DecareRepository) : ViewModel() {
+class YogaViewModel(decareRepository: DecareRepository) : ViewModel() {
     val yogas = decareRepository.getYoga().asLiveData()
 }

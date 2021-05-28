@@ -1,9 +1,8 @@
 package com.aemiralfath.decare.ui.exercise
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.Resource
@@ -26,7 +25,7 @@ class YogaActivity : AppCompatActivity() {
         binding.btnNextYoga.setOnClickListener {
             if (binding.vpYoga.currentItem + 1 < yogaAdapter.itemCount) {
                 binding.vpYoga.currentItem = binding.vpYoga.currentItem + 1
-            }else {
+            } else {
                 finish()
             }
         }
@@ -37,7 +36,7 @@ class YogaActivity : AppCompatActivity() {
 
         viewModel.yogas.observe(this, {
             if (it != null) {
-                when(it) {
+                when (it) {
                     is Resource.Error -> {
                         Log.d("YOGA", "ERROR")
                     }

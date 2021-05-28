@@ -45,13 +45,16 @@ class ProfileFragment : Fragment() {
         binding.tvProfileName.text = user?.displayName
         binding.tvProfileEmail.text = user?.email
 
-        binding.btnSignOut.setOnClickListener{
+        binding.btnSignOut.setOnClickListener {
             signOut()
         }
 
         Glide.with(view).load(user?.photoUrl)
             .placeholder(R.drawable.ic_baseline_person_24)
-            .apply(RequestOptions().override(75, 75))
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.ic_loading)
+                    .error(R.drawable.ic_error)
+            )
             .into(binding.imgProfilePhoto)
     }
 

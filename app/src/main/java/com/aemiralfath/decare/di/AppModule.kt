@@ -9,6 +9,7 @@ import com.aemiralfath.decare.data.source.remote.network.DecareApiService
 import com.aemiralfath.decare.ui.article.ArticleViewModel
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
 import com.aemiralfath.decare.ui.exercise.YogaViewModel
+import com.aemiralfath.decare.ui.reminder.ReminderViewModel
 import com.google.gson.GsonBuilder
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -47,4 +48,5 @@ val viewModelModule = module {
     viewModel { ArticleViewModel(get()) }
     viewModel { EarlyDetectionViewModel(get()) }
     viewModel { YogaViewModel(get()) }
+    viewModel { ReminderViewModel(get()) }
 }

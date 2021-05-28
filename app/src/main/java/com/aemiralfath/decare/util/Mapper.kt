@@ -1,10 +1,8 @@
 package com.aemiralfath.decare.util
 
 import com.aemiralfath.decare.data.source.local.entity.ArticleEntity
-import com.aemiralfath.decare.data.source.local.entity.PredictionEntity
 import com.aemiralfath.decare.data.source.local.entity.YogaEntity
 import com.aemiralfath.decare.data.source.remote.response.article.ArticleResponse
-import com.aemiralfath.decare.data.source.remote.response.prediction.PredictionResponse
 import com.aemiralfath.decare.data.source.remote.response.yoga.YogaResponse
 
 object Mapper {
@@ -36,11 +34,4 @@ object Mapper {
         }
         return entities
     }
-
-    fun mapResponseToEntityPrediction(input: PredictionResponse): PredictionEntity =
-        PredictionEntity(
-            prediction = input.prediction,
-            confident = input.confident
-        )
-
 }

@@ -1,11 +1,15 @@
 package com.aemiralfath.decare.ui.article
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.source.local.entity.ArticleEntity
 import com.aemiralfath.decare.databinding.ItemArticleBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
     private val listArticle = ArrayList<ArticleEntity>()
@@ -35,13 +39,19 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
             with(binding) {
                 Glide.with(root.context)
                     .load(article.banner)
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                            .error(R.drawable.ic_error)
+                    )
                     .into(imgPhotoItemArticle)
 
                 tvTitleItemArticle.text = article.title
                 tvDateItemArticle.text = article.date
 
-                root.setOnClickListener {
-
+                itemView.setOnClickListener{
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(article.link)
+                    itemView.context.startActivity(intent)
                 }
             }
         }

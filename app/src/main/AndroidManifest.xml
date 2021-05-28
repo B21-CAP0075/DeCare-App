@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeCare"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.exercise.YogaActivity"></activity>
+        <activity
+            android:name=".ui.reminder.ReminderAddUpdateActivity"
+            android:theme="@style/Theme.Decare.Reminder" />
+        <activity android:name=".ui.reminder.ReminderActivity" />
+        <activity android:name=".ui.exercise.YogaActivity" />
         <activity android:name=".ui.exercise.ExerciseActivity" />
         <activity android:name=".ui.splashscreen.SplashScreenActivity">
             <intent-filter>
