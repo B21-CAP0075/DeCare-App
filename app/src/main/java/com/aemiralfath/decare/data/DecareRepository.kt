@@ -153,8 +153,10 @@ class DecareRepository(
                 val filteredAnswer = AnyConverter.toListChar(answer)
 
                 for (i in filteredAnswer.indices) {
-                    if (filteredAnswer[i] == expectedAnswer[i]) {
-                        score += 1
+                    if (i < 5) {
+                        if (filteredAnswer[i] == expectedAnswer[i]) {
+                            score += 1
+                        }
                     }
                 }
 

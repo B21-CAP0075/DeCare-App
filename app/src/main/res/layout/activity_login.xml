@@ -52,7 +52,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
