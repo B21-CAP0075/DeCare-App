@@ -35,7 +35,7 @@ class ReminderActivity : AppCompatActivity() {
 
         viewModel.getReminder(SortUtils.NEWEST).observe(this, reminderObserver)
 
-        adapter = ReminderAdapter(this@ReminderActivity)
+        adapter = ReminderAdapter()
         adapter.setOnItemClickCallback(object: ReminderAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ReminderEntity, position: Int) {
                 val intent = Intent(this@ReminderActivity, ReminderAddUpdateActivity::class.java)
