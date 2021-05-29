@@ -4,7 +4,7 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 
 object SortUtils {
     const val NEWEST = "Newest"
-    const val OLDEST = "Oldest"
+    private const val OLDEST = "Oldest"
     fun getSortedQuery(filter: String): SimpleSQLiteQuery {
         val simpleQuery = StringBuilder().append("SELECT * FROM reminderentity ")
         when (filter) {

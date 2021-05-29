@@ -34,8 +34,7 @@
     <string name="gender">Jenis Kelamin</string>
     <string name="educ">Pendidikan terakhir</string>
     <string name="ses">Tingkat Sosial Ekonomi</string>
-    <string name="question_count_placeholder">Pertanyaan ke %d dari 11</string>
-    <string name="orientation">Orientasi</string>
+    <string name="question_count_placeholder">Pertanyaan ke %d dari 1</string>
     <string name="question1_orientation">Jam berapa sekarang  ?</string>
     <string name="question2_orientation">Hari apa sekarang ?</string>
     <string name="question3_orientation">Tanggal berapa sekarang ?</string>
@@ -51,7 +50,6 @@
     <string name="first_object">Obyek pertama</string>
     <string name="second_object">Obyek kedua</string>
     <string name="third_object">Obyek ketiga</string>
-    <string name="registration">Registration</string>
     <string name="question6_registration">Di negara mana anda tinggal ?</string>
     <string name="question6_helper_registration">Contoh: Amerika</string>
     <string name="question7_registration">Di provinsi mana anda tinggal ?</string>
@@ -62,12 +60,9 @@
     <string name="question9_helper_registration">Contoh: Tegalsari</string>
     <string name="question10_registration">Di kelurahan mana anda tinggal ?</string>
     <string name="question10_helper_registration">Contoh: Dr. Sutomo</string>
-    <string name="attraction_and_calculation">Perhatian dan Kalkulasi</string>
     <string name="question_attraction_and_calculation">Eja kata \"WAHYU\" dari belakang</string>
     <string name="answer">Jawaban</string>
-    <string name="recall">Mengingat</string>
     <string name="question_recall">Sebut 3 obyek yang ada pada soal nomor 3</string>
-    <string name="Language">Bahasa</string>
     <string name="question_bahasa">Sebutkan nama dari 2 benda pada foto diatas</string>
     <string name="question_bahasa_5_kata">Dengarkan suara dengan cara tekan tombol di atas, kemudian tuliskan 5 kata yang anda dengar secara urut</string>
     <string name="question_number_eight">Lakukan 3 perintah seperti di bawah ini:</string>
@@ -78,13 +73,11 @@
     <string name="clicked_button">Tombol ini telah ditekan</string>
     <string name="score">Nilai</string>
     <string name="check_patient_score">Periksa Nilai Pasien</string>
-    <string name="your_test_score">Hasil ujian MMSE anda adalah %d</string>
     <string name="predict">Lakukan Prediksi</string>
     <string name="image_splashscreen">Image Splashscreen</string>
     <string name="empty">Form tidak boleh kosong</string>
     <string name="input_data">Masukkan Data</string>
     <string name="reminder">Ingatlah ketiga obyek ini sampai akhir ujian</string>
-    <string name="result_predict">Hasil prediksi</string>
     <string name="profile">Data Diri</string>
     <string name="yoga_exercise">Mari Latihan Yoga bersama DeCare!</string>
     <string name="start_yoga">Mulai Yoga</string>
@@ -122,4 +115,6 @@
     <string name="test_result_greeting">Selamat! %s telah menyelesaikan ujian MMSE dengan nilai :</string>
     <string name="back_to_home">Kembali ke Beranda</string>
     <string name="error_next_question">Harap ikuti instruksi sebelum lanjut ke soal berikutnya</string>
+    <string name="_30">/30</string>
+    <string name="result_prediction">Hasil Prediksi:</string>
 </resources>

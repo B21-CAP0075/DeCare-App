@@ -15,7 +15,8 @@
         android:src="@drawable/logo_information"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"/>
 
     <View
         android:id="@+id/top_rounded_information"
@@ -76,7 +77,8 @@
                 android:src="@drawable/one"
                 app:layout_constraintBottom_toBottomOf="@+id/textView20"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView20" />
+                app:layout_constraintTop_toTopOf="@+id/textView20"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/textView21"
@@ -100,7 +102,8 @@
                 android:src="@drawable/two"
                 app:layout_constraintBottom_toBottomOf="@+id/textView21"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView21" />
+                app:layout_constraintTop_toTopOf="@+id/textView21"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/textView22"
@@ -124,7 +127,8 @@
                 android:src="@drawable/three"
                 app:layout_constraintBottom_toBottomOf="@+id/textView22"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView22" />
+                app:layout_constraintTop_toTopOf="@+id/textView22"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/textView23"
@@ -148,7 +152,8 @@
                 android:src="@drawable/four"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView23" />
+                app:layout_constraintTop_toTopOf="@+id/textView23"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/textView24"
@@ -186,7 +191,8 @@
                 android:src="@drawable/six"
                 app:layout_constraintBottom_toBottomOf="@+id/textView2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView2" />
+                app:layout_constraintTop_toTopOf="@+id/textView2"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/textView25"
@@ -210,7 +216,8 @@
                 android:src="@drawable/seven"
                 app:layout_constraintBottom_toBottomOf="@+id/textView25"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView25" />
+                app:layout_constraintTop_toTopOf="@+id/textView25"
+                tools:ignore="ContentDescription"/>
 
             <ImageView
                 android:id="@+id/imageView16"
@@ -220,7 +227,8 @@
                 android:src="@drawable/five"
                 app:layout_constraintBottom_toBottomOf="@+id/textView24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView24" />
+                app:layout_constraintTop_toTopOf="@+id/textView24"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/textView26"
@@ -244,7 +252,8 @@
                 android:src="@drawable/eight"
                 app:layout_constraintBottom_toBottomOf="@+id/textView26"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView26" />
+                app:layout_constraintTop_toTopOf="@+id/textView26"
+                tools:ignore="ContentDescription"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

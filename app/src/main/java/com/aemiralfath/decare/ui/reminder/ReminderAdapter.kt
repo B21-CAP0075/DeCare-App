@@ -1,6 +1,5 @@
 package com.aemiralfath.decare.ui.reminder
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,8 +10,7 @@ import com.aemiralfath.decare.databinding.ItemReminderBinding
 import com.aemiralfath.decare.util.ReminderDiffCallback
 import com.bumptech.glide.Glide
 
-class ReminderAdapter internal constructor(private val activity: Activity) :
-    RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>() {
+class ReminderAdapter : RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
