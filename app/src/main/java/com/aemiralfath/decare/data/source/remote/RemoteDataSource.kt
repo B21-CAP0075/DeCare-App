@@ -54,8 +54,8 @@ class RemoteDataSource(private val decareApiService: DecareApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    fun getPrediction(json: JsonObject): LiveData<PredictionResponse> {
-        val prediction = MutableLiveData<PredictionResponse>()
+    fun getPrediction(json: JsonObject): LiveData<PredictionResponse?> {
+        val prediction = MutableLiveData<PredictionResponse?>()
 
         loadingStatePrediction.value = true
 
@@ -75,6 +75,7 @@ class RemoteDataSource(private val decareApiService: DecareApiService) {
 
             override fun onFailure(call: Call<PredictionResponse>, t: Throwable) {
                 loadingStatePrediction.value = false
+                prediction.value = null
                 Log.d("ViewModelTest", "RemoteDataSource getPrediction: error with message ${t.message}")
             }
 

@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentTestResultBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
-import com.aemiralfath.decare.util.AlertDialogHelper
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TestResultFragment : Fragment() {
@@ -47,23 +46,36 @@ class TestResultFragment : Fragment() {
         binding.btnPredictTestResult.setOnClickListener {
             viewModel.predict().observe(viewLifecycleOwner, {
 
-                val result = String.format(resources.getString(R.string.test_result_placeholder), it.prediction, it.confident)
-                binding.tvStatusTestResult.text = result
+                if (it != null) {
+                    val result = String.format(
+                        resources.getString(R.string.test_result_placeholder),
+                        it.prediction,
+                        it.confident,
+                        "%"
+                    )
+                    binding.tvStatusTestResult.text = result
 
-                if (it.prediction == "Normal") {
-                    binding.imgStatusTestResult.setImageDrawable(
-                        ContextCompat.getDrawable(
-                            binding.root.context,
-                            R.drawable.img_not_dementia
+                    if (it.prediction == "Normal") {
+                        binding.imgStatusTestResult.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                binding.root.context,
+                                R.drawable.img_not_dementia
+                            )
                         )
-                    )
+                    } else {
+                        binding.imgStatusTestResult.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                binding.root.context,
+                                R.drawable.img_dementia
+                            )
+                        )
+                    }
                 } else {
-                    binding.imgStatusTestResult.setImageDrawable(
-                        ContextCompat.getDrawable(
-                            binding.root.context,
-                            R.drawable.img_dementia
-                        )
-                    )
+                    Snackbar.make(
+                        binding.root,
+                        resources.getString(R.string.request_timeout),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             })
         }

@@ -121,7 +121,10 @@
     <string name="warning">Peringatan</string>
     <string name="back">Kembali</string>
     <string name="back_message">Ujian MMSE sedang berlangsung, jika anda menekan tombol \'Kembali\' maka ujian akan dihentikan</string>
-    <string name="validator_message">Silahkan berikan HP ke validator/caregiver anda untuk melanjutkan proses deteksi dini</string>
-    <string name="validator_message_title">Halaman ini khusus untuk validator/caregiver</string>
-    <string name="test_result_placeholder">%s (%s)</string>
+    <string name="validator_message">Untuk melanjutkan proses deteksi dini, silahkan berikan gawai ini ke validator anda.</string>
+    <string name="validator_message_title">Halaman ini khusus untuk validator</string>
+    <string name="test_result_placeholder">%s (%s %s)</string>
+    <string name="request_timeout">Terjadi kesalahan, silahkan coba lagi</string>
+    <string name="dementia_care">Dementia Care</string>
+    <string name="app">App</string>
 </resources>
