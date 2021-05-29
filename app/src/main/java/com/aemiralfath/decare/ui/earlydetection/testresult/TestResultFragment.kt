@@ -46,42 +46,38 @@ class TestResultFragment : Fragment() {
         binding.btnPredictTestResult.setOnClickListener {
             viewModel.predict().observe(viewLifecycleOwner, {
 
-                if (it != null) {
-                    val result = String.format(
-                        resources.getString(R.string.test_result_placeholder),
-                        it.prediction,
-                        it.confident,
-                        "%"
-                    )
-                    binding.tvStatusTestResult.text = result
+                val result = String.format(
+                    resources.getString(R.string.test_result_placeholder),
+                    it.prediction, // "Normal atau Dementia"
+                    it.confident,
+                    "%"
+                )
+                binding.tvStatusTestResult.text = result
 
-                    if (it.prediction == "Normal") {
-                        binding.imgStatusTestResult.setImageDrawable(
-                            ContextCompat.getDrawable(
-                                binding.root.context,
-                                R.drawable.img_not_dementia
-                            )
+                if (it.prediction == "Normal") {
+                    binding.imgStatusTestResult.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            binding.root.context,
+                            R.drawable.img_not_dementia
                         )
-                    } else {
-                        binding.imgStatusTestResult.setImageDrawable(
-                            ContextCompat.getDrawable(
-                                binding.root.context,
-                                R.drawable.img_dementia
-                            )
-                        )
-                    }
+                    )
                 } else {
-                    Snackbar.make(
-                        binding.root,
-                        resources.getString(R.string.request_timeout),
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    binding.imgStatusTestResult.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            binding.root.context,
+                            R.drawable.img_dementia
+                        )
+                    )
                 }
             })
         }
 
         viewModel.loadingStatePrediction.observe(viewLifecycleOwner, {
             showLoading(it)
+        })
+
+        viewModel.predictIsError.observe(viewLifecycleOwner, {
+            showError(it)
         })
 
         binding.btnBackToHomeTestResult.setOnClickListener {
@@ -111,6 +107,22 @@ class TestResultFragment : Fragment() {
             binding.progressBarTestResult.visibility = View.GONE
             binding.imgStatusTestResult.visibility = View.VISIBLE
             binding.tvStatusTestResult.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showError(state: Boolean) {
+        if (state) {
+            Snackbar.make(
+                binding.root,
+                resources.getString(R.string.request_timeout),
+                Snackbar.LENGTH_SHORT
+            ).show()
+        }else {
+            Snackbar.make(
+                binding.root,
+                resources.getString(R.string.early_detection_success),
+                Snackbar.LENGTH_SHORT
+            ).show()
         }
     }
 }

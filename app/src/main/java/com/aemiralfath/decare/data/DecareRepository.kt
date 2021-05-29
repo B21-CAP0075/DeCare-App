@@ -31,6 +31,7 @@ class DecareRepository(
     private val dataPatientAnswer = PatientAnswer()
 
     val loadingStatePrediction: LiveData<Boolean> = remoteDataSource.loadingStatePrediction
+    val predictIsError: LiveData<Boolean> = remoteDataSource.isError
 
     fun getPatientAnswers() = dataPatientAnswer
     fun getPatientData() = dataPatient
@@ -316,7 +317,7 @@ class DecareRepository(
         }
     }
 
-    fun predict(): LiveData<PredictionResponse?> {
+    fun predict(): LiveData<PredictionResponse> {
         val jsonPatient = JsonObjectConverter.convertPatientToJson(dataPatient)
         return remoteDataSource.getPrediction(jsonPatient)
     }

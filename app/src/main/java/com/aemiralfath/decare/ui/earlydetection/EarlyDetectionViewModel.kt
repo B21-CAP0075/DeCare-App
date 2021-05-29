@@ -23,4 +23,5 @@ class EarlyDetectionViewModel(private val decareRepository: DecareRepository) : 
     fun predict() = decareRepository.predict()
 
     val loadingStatePrediction = decareRepository.loadingStatePrediction
+    val predictIsError = decareRepository.predictIsError
 }

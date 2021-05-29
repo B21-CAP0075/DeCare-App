@@ -20,6 +20,7 @@ import retrofit2.Response
 class RemoteDataSource(private val decareApiService: DecareApiService) {
 
     val loadingStatePrediction = MutableLiveData<Boolean>()
+    val isError = MutableLiveData<Boolean>()
 
     fun getYoga(): Flow<ApiResponse<YogaResponse>> {
         return flow {
@@ -28,11 +29,11 @@ class RemoteDataSource(private val decareApiService: DecareApiService) {
 
                 if (yogas.isNotEmpty()) {
                     emit(ApiResponse.Success(yogas))
-                }else {
+                } else {
                     emit(ApiResponse.Empty)
                 }
 
-            }catch (e: Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.message.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -54,10 +55,11 @@ class RemoteDataSource(private val decareApiService: DecareApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    fun getPrediction(json: JsonObject): LiveData<PredictionResponse?> {
-        val prediction = MutableLiveData<PredictionResponse?>()
+    fun getPrediction(json: JsonObject): LiveData<PredictionResponse> {
+        val prediction = MutableLiveData<PredictionResponse>()
 
         loadingStatePrediction.value = true
+
 
         val client = decareApiService.predict(json)
         client.enqueue(object : Callback<PredictionResponse> {
@@ -71,12 +73,16 @@ class RemoteDataSource(private val decareApiService: DecareApiService) {
                     Log.d("ViewModelTest", "RemoteDataSource getPrediction: $it")
                 }
                 loadingStatePrediction.value = false
+                isError.value = false
             }
 
             override fun onFailure(call: Call<PredictionResponse>, t: Throwable) {
                 loadingStatePrediction.value = false
-                prediction.value = null
-                Log.d("ViewModelTest", "RemoteDataSource getPrediction: error with message ${t.message}")
+                isError.value = true
+                Log.d(
+                    "ViewModelTest",
+                    "RemoteDataSource getPrediction: error with message ${t.message}"
+                )
             }
 
         })
