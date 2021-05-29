@@ -21,7 +21,8 @@
         tools:layout="@layout/fragment_question_two" >
         <action
             android:id="@+id/action_questionTwoFragment_to_questionThreeFragment"
-            app:destination="@id/questionThreeFragment" />
+            app:destination="@id/questionThreeFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/questionThreeFragment"
@@ -39,7 +40,8 @@
         tools:layout="@layout/fragment_question_four" >
         <action
             android:id="@+id/action_questionFourFragment_to_questionFiveFragment"
-            app:destination="@id/questionFiveFragment" />
+            app:destination="@id/questionFiveFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/questionFiveFragment"
@@ -48,7 +50,8 @@
         tools:layout="@layout/fragment_question_five" >
         <action
             android:id="@+id/action_questionFiveFragment_to_questionSixFragment"
-            app:destination="@id/questionSixFragment" />
+            app:destination="@id/questionSixFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/questionSixFragment"
@@ -66,7 +69,8 @@
         tools:layout="@layout/fragment_question_seven" >
         <action
             android:id="@+id/action_questionSevenFragment_to_questionEightFragment"
-            app:destination="@id/questionEightFragment" />
+            app:destination="@id/questionEightFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/questionEightFragment"
@@ -75,16 +79,20 @@
         tools:layout="@layout/fragment_question_eight" >
         <action
             android:id="@+id/action_questionEightFragment_to_questionNineFragment"
-            app:destination="@id/questionNineFragment" />
+            app:destination="@id/questionNineFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/questionNineFragment"
         android:name="com.aemiralfath.decare.ui.earlydetection.patienttest.QuestionNineFragment"
         android:label="fragment_question_nine"
-        tools:layout="@layout/fragment_question_nine" >
+        tools:layout="@layout/fragment_question_nine"
+        app:popUpTo="@id/navigation_patient_test"
+        app:popUpToInclusive="true">
         <action
             android:id="@+id/action_questionNineFragment_to_questionTenFragment"
-            app:destination="@id/questionTenFragment" />
+            app:destination="@id/questionTenFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/questionTenFragment"
@@ -93,7 +101,8 @@
         tools:layout="@layout/fragment_question_ten" >
         <action
             android:id="@+id/action_questionTenFragment_to_questionElevenFragment"
-            app:destination="@id/questionElevenFragment" />
+            app:destination="@id/questionElevenFragment"
+           />
     </fragment>
     <fragment
         android:id="@+id/questionElevenFragment"
@@ -102,7 +111,8 @@
         tools:layout="@layout/fragment_question_eleven" >
         <action
             android:id="@+id/action_questionElevenFragment_to_validatorTestFragment"
-            app:destination="@id/validatorTestFragment" />
+            app:destination="@id/validatorTestFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/informationFragment"
@@ -138,7 +148,8 @@
         tools:layout="@layout/fragment_validator_test" >
         <action
             android:id="@+id/action_validatorTestFragment_to_testResultFragment"
-            app:destination="@id/testResultFragment" />
+            app:destination="@id/testResultFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/testResultFragment"

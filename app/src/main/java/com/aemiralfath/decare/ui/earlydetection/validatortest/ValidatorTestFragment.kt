@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +13,7 @@ import com.aemiralfath.decare.R
 import com.aemiralfath.decare.data.model.PatientAnswer
 import com.aemiralfath.decare.databinding.FragmentValidatorTestBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.AlertDialogHelper
 import com.aemiralfath.decare.util.QuestionNumber
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -38,6 +41,8 @@ class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClic
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showWarningDialog()
+
         setupRecyclerview(viewModel.getPatientAnswers())
 
         binding.btnCheckScoreValidator.setOnClickListener {
@@ -46,6 +51,34 @@ class ValidatorTestFragment : Fragment(), ValidatorTestAdapter.OnUpdateScoreClic
             findNavController().navigate(R.id.action_validatorTestFragment_to_testResultFragment)
         }
 
+        showAlertDialog()
+
+    }
+
+    private fun showWarningDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(binding.root.context).apply {
+            setTitle(context.getString(R.string.validator_message_title))
+            setMessage(context.getString(R.string.validator_message))
+            setCancelable(false)
+            setPositiveButton(context.getString(R.string.yes)) { _, _ ->
+            }
+        }
+
+        alertDialogBuilder.create().show()
+    }
+
+    private fun showAlertDialog() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                AlertDialogHelper.createAlertDialogHelper(
+                    binding.root.context,
+                    findNavController()
+                ).apply { show() }
+            }
+
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun setupRecyclerview(data: PatientAnswer) {
