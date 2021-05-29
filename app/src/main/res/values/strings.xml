@@ -34,7 +34,7 @@
     <string name="gender">Jenis Kelamin</string>
     <string name="educ">Pendidikan terakhir</string>
     <string name="ses">Tingkat Sosial Ekonomi</string>
-    <string name="question_count_placeholder">Pertanyaan ke %d dari 1</string>
+    <string name="question_count_placeholder">Pertanyaan ke %d dari 11</string>
     <string name="question1_orientation">Jam berapa sekarang  ?</string>
     <string name="question2_orientation">Hari apa sekarang ?</string>
     <string name="question3_orientation">Tanggal berapa sekarang ?</string>
@@ -118,4 +118,10 @@
     <string name="_30">/30</string>
     <string name="result_prediction">Hasil Prediksi:</string>
     <string name="not_found">Tidak ada data</string>
+    <string name="warning">Peringatan</string>
+    <string name="back">Kembali</string>
+    <string name="back_message">Ujian MMSE sedang berlangsung, jika anda menekan tombol \'Kembali\' maka ujian akan dihentikan</string>
+    <string name="validator_message">Silahkan berikan HP ke validator/caregiver anda untuk melanjutkan proses deteksi dini</string>
+    <string name="validator_message_title">Halaman ini khusus untuk validator/caregiver</string>
+    <string name="test_result_placeholder">%s (%s)</string>
 </resources>

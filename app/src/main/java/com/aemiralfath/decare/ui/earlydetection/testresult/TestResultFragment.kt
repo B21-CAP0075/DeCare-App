@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentTestResultBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.AlertDialogHelper
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TestResultFragment : Fragment() {
@@ -44,7 +47,8 @@ class TestResultFragment : Fragment() {
         binding.btnPredictTestResult.setOnClickListener {
             viewModel.predict().observe(viewLifecycleOwner, {
 
-                binding.tvStatusTestResult.text = it.prediction
+                val result = String.format(resources.getString(R.string.test_result_placeholder), it.prediction, it.confident)
+                binding.tvStatusTestResult.text = result
 
                 if (it.prediction == "Normal") {
                     binding.imgStatusTestResult.setImageDrawable(
@@ -71,6 +75,19 @@ class TestResultFragment : Fragment() {
         binding.btnBackToHomeTestResult.setOnClickListener {
             activity?.finish()
         }
+
+        showAlertDialog()
+    }
+
+    private fun showAlertDialog() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                //do nothing to prevent user going back
+            }
+
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun showLoading(state: Boolean) {

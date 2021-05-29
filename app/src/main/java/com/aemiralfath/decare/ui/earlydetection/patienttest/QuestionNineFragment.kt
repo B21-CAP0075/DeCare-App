@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aemiralfath.decare.R
 import com.aemiralfath.decare.databinding.FragmentQuestionNineBinding
 import com.aemiralfath.decare.ui.earlydetection.EarlyDetectionViewModel
+import com.aemiralfath.decare.util.AlertDialogHelper
 import com.aemiralfath.decare.util.QuestionNumber
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -59,5 +61,21 @@ class QuestionNineFragment : Fragment() {
                 ).show()
             }
         }
+
+        showAlertDialog()
+    }
+
+    private fun showAlertDialog() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                AlertDialogHelper.createAlertDialogHelper(
+                    binding.root.context,
+                    findNavController()
+                ).apply { show() }
+            }
+
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 }
