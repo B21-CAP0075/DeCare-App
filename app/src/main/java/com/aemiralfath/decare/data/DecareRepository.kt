@@ -314,7 +314,7 @@ class DecareRepository(
         }
     }
 
-    fun predict(): LiveData<PredictionResponse> {
+    fun predict(): LiveData<PredictionResponse?> {
         val jsonPatient = JsonObjectConverter.convertPatientToJson(dataPatient)
         return remoteDataSource.getPrediction(jsonPatient)
     }
