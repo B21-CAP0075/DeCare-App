@@ -117,4 +117,5 @@
     <string name="error_next_question">Harap ikuti instruksi sebelum lanjut ke soal berikutnya</string>
     <string name="_30">/30</string>
     <string name="result_prediction">Hasil Prediksi:</string>
+    <string name="not_found">Tidak ada data</string>
 </resources>

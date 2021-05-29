@@ -21,7 +21,7 @@ class ReminderDiffCallback(
         val newNote = newList[newItemPosition]
         return oldNote.title == newNote.title &&
                 oldNote.description == newNote.description &&
-                oldNote.date == newNote.date &&
+                oldNote.time == newNote.time &&
                 oldNote.reminder == newNote.reminder &&
                 oldNote.status == newNote.status &&
                 oldNote.type == newNote.type

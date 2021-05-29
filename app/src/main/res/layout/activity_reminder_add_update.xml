@@ -89,14 +89,14 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/btn_repeating_time"
+                android:id="@+id/btn_time"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_time"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/tv_repeating_time"
+                android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

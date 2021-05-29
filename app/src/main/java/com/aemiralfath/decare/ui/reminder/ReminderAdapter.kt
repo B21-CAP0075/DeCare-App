@@ -47,13 +47,13 @@ class ReminderAdapter : RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>
             with(binding) {
                 tvItemTitle.text = reminder.title
                 tvItemDescription.text = reminder.description
-//                tvItemTime.text = reminder.date
+                tvItemTime.text = reminder.time
                 tvItemAlarm.text = reminder.reminder
                 tvItemStatus.text = if (reminder.status) "ON" else "OFF"
 
                 val itemImage = when (reminder.type) {
-                    0 -> R.drawable.ic_medication
-                    1 -> R.drawable.ic_run
+                    0 -> R.drawable.ic_run
+                    1 -> R.drawable.ic_medication
                     2 -> R.drawable.ic_article
                     else -> R.drawable.ic_error
                 }

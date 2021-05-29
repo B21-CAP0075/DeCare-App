@@ -25,6 +25,8 @@ class ReminderActivity : AppCompatActivity() {
     private val reminderObserver = Observer<List<ReminderEntity>> {
         if (it != null) {
             adapter.setListReminder(it)
+            binding.viewEmpty.root.visibility =
+                if (it.isNotEmpty()) View.GONE else View.VISIBLE
         }
     }
 
@@ -36,7 +38,7 @@ class ReminderActivity : AppCompatActivity() {
         viewModel.getReminder(SortUtils.NEWEST).observe(this, reminderObserver)
 
         adapter = ReminderAdapter()
-        adapter.setOnItemClickCallback(object: ReminderAdapter.OnItemClickCallback {
+        adapter.setOnItemClickCallback(object : ReminderAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ReminderEntity, position: Int) {
                 val intent = Intent(this@ReminderActivity, ReminderAddUpdateActivity::class.java)
                 intent.putExtra(ReminderAddUpdateActivity.EXTRA_POSITION, position)
@@ -65,6 +67,7 @@ class ReminderActivity : AppCompatActivity() {
         addUpdateResult =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.data != null) {
+                    result.data
                     if (result.resultCode == ReminderAddUpdateActivity.RESULT_ADD) {
                         showSnackbarMessage(getString(R.string.added))
                     }

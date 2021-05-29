@@ -19,15 +19,18 @@ data class ReminderEntity(
     @ColumnInfo(name = "description")
     var description: String? = null,
 
-    @ColumnInfo(name = "date")
-    var date: String? = null,
+    @ColumnInfo(name = "time")
+    var time: String? = null,
 
     @ColumnInfo(name = "reminder")
     var reminder: String? = null,
+
+    @ColumnInfo(name = "alarmID")
+    var alarmID: Int? = 0,
 
     @ColumnInfo(name = "type")
     var type: Int = 0,
 
     @ColumnInfo(name = "status")
-    var status: Boolean = false
+    var status: Boolean = false,
 ) : Parcelable

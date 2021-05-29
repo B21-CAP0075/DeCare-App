@@ -4,6 +4,8 @@
     package="com.aemiralfath.decare">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".di.DecareApplication"
@@ -14,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeCare"
         tools:ignore="AllowBackup">
+
+        <receiver
+            android:name=".ui.reminder.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver" />
+
         <activity
             android:name=".ui.reminder.ReminderAddUpdateActivity"
             android:theme="@style/Theme.Decare.Reminder" />
