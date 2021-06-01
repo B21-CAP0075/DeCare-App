@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "255960715029",
+    "project_id": "decare-eb704",
+    "storage_bucket": "decare-eb704.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255960715029:android:8d3052796413ca059b231c",
+        "android_client_info": {
+          "package_name": "com.aemiralfath.decare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255960715029-8or9n26hfcfqe2lgkl83eb2b773j9o7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD2lEcpcwUWvoIBvv9DHSG_fdmZm3TeEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255960715029-8or9n26hfcfqe2lgkl83eb2b773j9o7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255960715029:android:40ad20ad9051c5ef9b231c",
+        "android_client_info": {
+          "package_name": "com.bangkit.decare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255960715029-8or9n26hfcfqe2lgkl83eb2b773j9o7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD2lEcpcwUWvoIBvv9DHSG_fdmZm3TeEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255960715029-8or9n26hfcfqe2lgkl83eb2b773j9o7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
