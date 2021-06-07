@@ -27,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/img_command_item_question_eight"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="16dp"
                 android:contentDescription="@string/app_name"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,16 +41,17 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:textSize="30sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/img_command_item_question_eight"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/img_command_item_question_eight"
-                app:layout_constraintTop_toTopOf="@+id/img_command_item_question_eight"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Swipe ke kiri" />
 
 

@@ -13,6 +13,9 @@ object AlertDialogHelper {
             setPositiveButton(context.getString(R.string.back)) { _, _ ->
                 navController.navigate(R.id.informationFragment)
             }
+            setNegativeButton(context.getString(R.string.cancel)) {_, _ ->
+                // do nothing
+            }
         }
 
         return alertDialogBuilder.create()

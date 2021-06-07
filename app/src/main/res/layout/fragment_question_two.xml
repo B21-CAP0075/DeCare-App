@@ -71,7 +71,7 @@
                 android:hint="@string/question6_registration"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question6_helper_registration"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -94,7 +94,7 @@
                 android:hint="@string/question7_registration"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question7_helper_registration"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_country_question_two">
@@ -117,7 +117,7 @@
                 android:hint="@string/question8_registration"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question8_helper_registration"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_province_question_two">
@@ -140,7 +140,7 @@
                 android:hint="@string/question9_registration"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question9_helper_registration"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_city_question_two">
@@ -164,7 +164,7 @@
                 android:hint="@string/question10_registration"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question10_helper_registration"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

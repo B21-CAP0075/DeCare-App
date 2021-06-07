@@ -49,7 +49,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/instruction"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -240,6 +240,7 @@
                 android:text="@string/instruction_8"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView20"
                 app:layout_constraintTop_toBottomOf="@+id/textView25" />

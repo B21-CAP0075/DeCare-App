@@ -70,7 +70,7 @@
                 android:hint="@string/question1_orientation"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question1_helper_orientation"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +94,7 @@
                 android:hint="@string/question2_orientation"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question2_helper_orientation"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_time_question_one">
@@ -117,7 +117,7 @@
                 android:hint="@string/question3_orientation"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question3_helper_orientation"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_days_question_one">
@@ -140,7 +140,7 @@
                 android:hint="@string/question4_orientation"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question4_helper_orientation"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_date_question_one">
@@ -160,11 +160,11 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="8dp"
                 android:hint="@string/question5_orientation"
                 app:endIconMode="clear_text"
                 app:helperText="@string/question5_helper_orientation"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -174,7 +174,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
